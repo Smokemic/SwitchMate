@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2, Step 3 – Switchmate</title>
+    
+    <!-- PWA Meta -->
+    <meta name="theme-color" content="#0066CC">
+    <link rel="manifest" href="../../manifest.json">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/modules.css">
+</head>
+<body>
+    <!-- Sprachumschalter -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en">
+            <img src="../../assets/images/flags/en.svg" alt="English"> EN
+        </button>
+        <button class="lang-btn" data-lang="de">
+            <img src="../../assets/images/flags/de.svg" alt="Deutsch"> DE
+        </button>
+    </div>
+
+    <!-- Fortschrittsanzeige -->
+    <div class="progress-bar">
+        <div class="progress-container">
+            <div class="progress-step completed">Mod 0</div>
+            <div class="progress-step completed">Mod 1</div>
+            <div class="progress-step completed">2.1</div>
+            <div class="progress-step completed">2.2</div>
+            <div class="progress-step active">2.3</div>
+        </div>
+    </div>
+
+    <!-- Hauptbereich -->
+    <main class="module-step">
+        <!-- Linke Spalte: Anleitung -->
+        <div class="step-instruction">
+            <div class="module-badge">Module 2: First Days</div>
+            <h1 class="step-title">Step 3: Install First Apps</h1>
+            
+            <!-- Spur-A: Schnell -->
+            <div class="track track-fast">
+                <h2>⚡ Fast track</h2>
+                <p>Open "Discover" (App Store) from the bottom menu.</p>
+                
+                <div class="info-box blue">
+                    <strong>Popular apps to install:</strong>
+                </div>
+                
+                <div class="command-box">
+                    <code>🎮 Steam (already installed!)</code>
+                </div>
+                
+                <div class="command-box">
+                    <code>🌐 Firefox / Chrome / Edge</code>
+                    <button class="copy-btn" onclick="copyCommand(this)">📋 Copy</button>
+                </div>
+                
+                <div class="command-box">
+                    <code>📦 Discord</code>
+                    <button class="copy-btn" onclick="copyCommand(this)">📋 Copy</button>
+                </div>
+                
+                <div class="command-box">
+                    <code>🎨 GIMP (Photoshop alternative)</code>
+                    <button class="copy-btn" onclick="copyCommand(this)">📋 Copy</button>
+                </div>
+                
+                <p>Just search and click "Install".</p>
+            </div>
+            
+            <!-- Spur-B: Verstehen -->
+            <details class="track-slow">
+                <summary>🐢 I want to understand</summary>
+                <div class="slow-content">
+                    <h3>How app installation works on Bazzite:</h3>
+                    <ul>
+                        <li><strong>Flatpak:</strong> Most apps are Flatpaks – sandboxed, safe, updated automatically</li>
+                        <li><strong>Discover</strong> is the app store that manages Flatpaks</li>
+                        <li><strong>Steam</strong> comes pre-installed (Bazzite is gaming-focused)</li>
+                    </ul>
+                    
+                    <h3>Finding apps:</h3>
+                    <ul>
+                        <li>Search in Discover</li>
+                        <li>Or visit <a href="https://flathub.org" target="_blank">Flathub.org</a> and click "Install"</li>
+                    </ul>
+                    
+                    <h3>Pro tip:</h3>
+                    <p>For Windows apps, you can try Bottles or Wine – but that's advanced. Stick to native apps first!</p>
+                </div>
+            </details>
+            
+            <!-- Checkpoint -->
+            <div class="checkpoint">
+                <h3>✅ Checkpoint</h3>
+                <p>Did you install at least one app? Does it run?</p>
+                <button class="checkpoint-btn" onclick="completeStep()">Yes, apps work! →</button>
+            </div>
+            
+            <!-- Panik-Knopf -->
+            <div class="panic-box">
+                <button class="panic-btn" onclick="showHelp()">🚨 App problems? Get help</button>
+                <div id="panic-help" class="panic-content hidden">
+                    <h4>Common issues:</h4>
+                    <ul>
+                        <li><strong>Discover won't open?</strong> Restart Bazzite</li>
+                        <li><strong>App not found?</strong> Try the exact name on Flathub</li>
+                        <li><strong>Installation fails?</strong> Check internet and free space</li>
+                        <li><strong>Need something specific?</strong> <a href="../../campfire/">Ask Bazzi at Campfire</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Rechte Spalte: Bilder -->
+        <div class="step-visuals">
+            <h3>📸 How it should look</h3>
+            
+            <!-- Discover -->
+            <div class="image-card good">
+                <div style="background: #ddd; height: 200px; display: flex; align-items: center; justify-content: center;">
+                    🛍️ Discover App Store
+                </div>
+                <p class="image-caption">✅ Search and install</p>
+            </div>
+            
+            <!-- Flathub -->
+            <div class="image-card good">
+                <div style="background: #ddd; height: 200px; display: flex; align-items: center; justify-content: center;">
+                    🌐 Flathub.org website
+                </div>
+                <p class="image-caption">✅ Alternative app source</p>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="step-nav">
+                <button class="nav-btn prev" onclick="goToStep2()">← Previous</button>
+                <button class="nav-btn next" onclick="goToModule3()">Module 3: Gaming →</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Switchmate – Free forever</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/i18n.js"></script>
+    <script src="../../assets/js/modules.js"></script>
+    
+    <script>
+        function copyCommand(btn) {
+            const code = btn.previousElementSibling.textContent;
+            navigator.clipboard.writeText(code);
+            btn.textContent = "✅ Copied!";
+            setTimeout(() => btn.textContent = "📋 Copy", 2000);
+        }
+        
+        function completeStep() {
+            localStorage.setItem('mod2-step3-complete', 'true');
+            localStorage.setItem('mod2-complete', 'true');
+            window.location.href = '../../modules/mod3/step1.html';
+        }
+        
+        function showHelp() {
+            document.getElementById('panic-help').classList.toggle('hidden');
+        }
+        
+        function goToStep2() {
+            window.location.href = 'step2.html';
+        }
+        
+        function goToModule3() {
+            if (localStorage.getItem('mod2-step3-complete')) {
+                window.location.href = '../../modules/mod3/step1.html';
+            } else {
+                alert('Please complete the checkpoint first!');
+            }
+        }
+    </script>
+</body>
+</html>
