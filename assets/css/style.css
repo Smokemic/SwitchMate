@@ -1,310 +1,41 @@
-/* style.css – Mit sanften Abstufungen */
-
-:root {
-    /* Basis */
-    --bg-dark: #434342;           /* Hintergrund (dunkelstes Grau) */
-    --border-dark: #222126;        /* Umrandungen */
-    
-    /* Karten – sanfte Abstufungen */
-    --card-mocha: #5e4b3a;         /* Modul-Karten (Mokka) */
-    --card-mocha-light: #7b6b5a;    /* Hover / besondere Karten */
-    --card-soft: #9fa2a3;           /* Ganz helle Akzente (selten) */
-    
-    /* Akzente */
-    --accent-gold: #b59455;         /* Gold für Buttons/Hover */
-    --accent-muted: #8b7a4d;        /* Dezenteres Gold */
-    
-    /* Funktionsfarben */
-    --green-soft: #96fca5;          /* Erfolg */
-    --orange-warm: #ee7f2c;          /* Campfire */
-    
-    /* Text */
-    --text-light: #ffffff;
-    --text-muted: rgba(255,255,255,0.8);
-    --text-soft: rgba(255,255,255,0.6);
-    
-    /* Abstände */
-    --spacing-xs: 0.25rem;
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 2rem;
-    --spacing-xl: 4rem;
-}
-
-/* Basis */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    line-height: 1.6;
-    color: var(--text-light);
-    background: var(--bg-dark);
-    min-height: 100vh;
-}
-
-/* Sprachumschalter */
+/* Sprachumschalter – nach oben und verkleinern */
 .language-switcher {
     position: fixed;
-    top: var(--spacing-md);
-    right: var(--spacing-md);
+    top: 20px;
+    right: 20px;
     display: flex;
-    gap: var(--spacing-xs);
+    gap: 8px;
     z-index: 1000;
 }
 
 .lang-btn {
     display: flex;
     align-items: center;
-    gap: var(--spacing-xs);
-    padding: var(--spacing-sm) var(--spacing-md);
+    gap: 5px;
+    padding: 8px 15px;
     border: 2px solid var(--border-dark);
     background: var(--card-mocha-light);
     color: var(--text-light);
     border-radius: 30px;
     cursor: pointer;
     font-weight: 600;
+    font-size: 14px;
     transition: all 0.2s;
+}
+
+.lang-btn img {
+    width: 20px;
+    height: 15px;
+    object-fit: cover;
 }
 
 .lang-btn:hover {
     border-color: var(--accent-gold);
     background: var(--card-mocha);
-    transform: translateY(-2px);
 }
 
 .lang-btn.active {
     background: var(--accent-gold);
     color: var(--bg-dark);
     border-color: var(--accent-gold);
-}
-
-/* Header */
-.main-header {
-    background: linear-gradient(135deg, var(--card-mocha), var(--border-dark));
-    color: var(--text-light);
-    padding: var(--spacing-xl) 0;
-    text-align: center;
-    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    border-bottom: 3px solid var(--accent-muted);
-}
-
-.site-title {
-    font-size: 4rem;
-    font-weight: 800;
-    margin-bottom: var(--spacing-sm);
-    color: var(--text-light);
-}
-
-.site-subtitle {
-    font-size: 1.5rem;
-    opacity: 0.9;
-    color: var(--text-muted);
-}
-
-/* Modul-Grid */
-.module-grid {
-    max-width: 1200px;
-    margin: var(--spacing-xl) auto;
-    padding: 0 var(--spacing-lg);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
-}
-
-/* Normale Modul-Karten (Mokka) */
-.module-card {
-    background: var(--card-mocha);
-    border-radius: 12px;
-    padding: var(--spacing-lg);
-    text-decoration: none;
-    color: inherit;
-    border: 2px solid var(--border-dark);
-    transition: all 0.2s;
-    position: relative;
-    overflow: hidden;
-}
-
-.module-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent-muted);
-    background: var(--card-mocha-light);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
-.module-number {
-    font-size: 3rem;
-    font-weight: 800;
-    color: var(--accent-muted);
-    opacity: 0.2;
-    position: absolute;
-    top: var(--spacing-sm);
-    right: var(--spacing-md);
-}
-
-.module-card h2 {
-    color: var(--text-light);
-    margin-bottom: var(--spacing-sm);
-    font-size: 1.5rem;
-}
-
-.module-card p {
-    color: var(--text-muted);
-}
-
-/* Besondere Karte (z.B. Campfire) */
-.module-card.special {
-    background: var(--card-mocha-light);
-    border-color: var(--accent-muted);
-}
-
-.module-card.special:hover {
-    background: var(--card-soft);
-    border-color: var(--accent-gold);
-}
-
-.module-card.special .module-number {
-    color: var(--accent-gold);
-    opacity: 0.3;
-}
-
-/* Status-Badge */
-.module-status {
-    display: inline-block;
-    margin-top: var(--spacing-md);
-    padding: var(--spacing-xs) var(--spacing-md);
-    background: var(--accent-muted);
-    color: var(--text-light);
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.module-status.completed {
-    background: var(--green-soft);
-    color: var(--bg-dark);
-}
-
-/* Campfire-Eingang (besondere Karte) */
-.campfire-entrance {
-    background: var(--card-mocha-light);
-    color: var(--text-light);
-    padding: var(--spacing-xl) var(--spacing-lg);
-    text-align: center;
-    margin: var(--spacing-xl) auto;
-    max-width: 1200px;
-    border-radius: 20px;
-    border: 2px solid var(--accent-muted);
-}
-
-.campfire-entrance h2 {
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-md);
-    color: var(--text-light);
-}
-
-.campfire-entrance p {
-    color: var(--text-muted);
-}
-
-.campfire-features {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-lg);
-    margin: var(--spacing-lg) 0;
-    flex-wrap: wrap;
-}
-
-.feature {
-    background: var(--card-mocha);
-    padding: var(--spacing-sm) var(--spacing-lg);
-    border-radius: 30px;
-    border: 1px solid var(--accent-muted);
-}
-
-.campfire-button {
-    display: inline-block;
-    padding: var(--spacing-md) var(--spacing-xl);
-    background: var(--accent-gold);
-    color: var(--bg-dark);
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: 1.2rem;
-    transition: all 0.2s;
-    border: 2px solid transparent;
-}
-
-.campfire-button:hover {
-    transform: scale(1.05);
-    background: var(--card-mocha-light);
-    color: var(--text-light);
-    border-color: var(--accent-gold);
-}
-
-/* Features Section */
-.features {
-    background: var(--card-mocha);
-    padding: var(--spacing-xl) var(--spacing-lg);
-}
-
-.feature-card {
-    background: var(--card-mocha-light);
-    border: 2px solid var(--border-dark);
-    padding: var(--spacing-lg);
-    border-radius: 12px;
-    text-align: center;
-}
-
-.feature-card h3 {
-    color: var(--accent-gold);
-    margin-bottom: var(--spacing-sm);
-}
-
-.feature-card p {
-    color: var(--text-muted);
-}
-
-/* Footer */
-footer {
-    background: var(--border-dark);
-    color: var(--text-muted);
-    text-align: center;
-    padding: var(--spacing-lg);
-    margin-top: var(--spacing-xl);
-    border-top: 2px solid var(--accent-muted);
-}
-
-footer a {
-    color: var(--accent-gold);
-    text-decoration: none;
-}
-
-footer a:hover {
-    color: var(--card-soft);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .site-title {
-        font-size: 2.5rem;
-    }
-    
-    .module-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .language-switcher {
-        position: static;
-        justify-content: center;
-        padding: var(--spacing-md);
-    }
-    
-    .campfire-features {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-    }
 }
