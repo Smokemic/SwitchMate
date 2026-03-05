@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1, Step 3 – Switchmate</title>
+    
+    <!-- PWA Meta -->
+    <meta name="theme-color" content="#0066CC">
+    <link rel="manifest" href="../../manifest.json">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/modules.css">
+</head>
+<body>
+    <!-- Sprachumschalter -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en">
+            <img src="../../assets/images/flags/en.svg" alt="English"> EN
+        </button>
+        <button class="lang-btn" data-lang="de">
+            <img src="../../assets/images/flags/de.svg" alt="Deutsch"> DE
+        </button>
+    </div>
+
+    <!-- Fortschrittsanzeige -->
+    <div class="progress-bar">
+        <div class="progress-container">
+            <div class="progress-step completed">Mod 0</div>
+            <div class="progress-step completed">1.1</div>
+            <div class="progress-step completed">1.2</div>
+            <div class="progress-step active">1.3</div>
+        </div>
+    </div>
+
+    <!-- Hauptbereich -->
+    <main class="module-step">
+        <!-- Linke Spalte: Anleitung -->
+        <div class="step-instruction">
+            <div class="module-badge">Module 1: The USB Stick</div>
+            <h1 class="step-title">Step 3: Install Bazzite</h1>
+            
+            <!-- Spur-A: Schnell -->
+            <div class="track track-fast">
+                <h2>⚡ Fast track</h2>
+                <p>On the Bazzite desktop, double-click:</p>
+                
+                <div class="command-box">
+                    <code>💿 Install Bazzite</code>
+                    <button class="copy-btn" onclick="copyCommand(this)">📋 Copy</button>
+                </div>
+                
+                <div class="info-box blue">
+                    <ol style="margin-left: var(--spacing-lg);">
+                        <li>Select language → English</li>
+                        <li>Select drive → Your internal SSD/HDD</li>
+                        <li>Click "Install"</li>
+                        <li>Wait 5-10 minutes</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Spur-B: Verstehen -->
+            <details class="track-slow">
+                <summary>🐢 I want to understand</summary>
+                <div class="slow-content">
+                    <h3>What happens during installation?</h3>
+                    <ul>
+                        <li>Bazzite is copied from USB to your internal drive</li>
+                        <li>It creates a dual-boot menu (Windows + Bazzite)</li>
+                        <li>Your Windows files stay untouched</li>
+                    </ul>
+                    
+                    <h3>Important choices:</h3>
+                    <ul>
+                        <li><strong>Drive:</strong> Pick the right one! Usually the largest internal drive</li>
+                        <li><strong>Partitioning:</strong> Choose "Use free space" or "Install alongside Windows"</li>
+                        <li><strong>User account:</strong> Create a username and password</li>
+                    </ul>
+                    
+                    <div class="info-box blue">
+                        <strong>Warning:</strong> Don't select "Erase entire drive" unless you're sure!
+                    </div>
+                </div>
+            </details>
+            
+            <!-- Checkpoint -->
+            <div class="checkpoint">
+                <h3>✅ Checkpoint</h3>
+                <p>Do you see "Installation Complete"?</p>
+                <button class="checkpoint-btn" onclick="completeStep()">Yes! Ready to restart →</button>
+            </div>
+            
+            <!-- Panik-Knopf -->
+            <div class="panic-box">
+                <button class="panic-btn" onclick="showHelp()">🚨 Installation stuck? Get help</button>
+                <div id="panic-help" class="panic-content hidden">
+                    <h4>Common issues:</h4>
+                    <ul>
+                        <li><strong>Can't find drive?</strong> Check BIOS: SATA mode = AHCI</li>
+                        <li><strong>Installation freezes?</strong> Try "Basic Graphics" mode from boot menu</li>
+                        <li><strong>Windows not detected?</strong> You can still install, but dual-boot must be set up manually</li>
+                        <li><strong>Still stuck?</strong> <a href="../../campfire/">Ask Bazzi at Campfire</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Rechte Spalte: Bilder -->
+        <div class="step-visuals">
+            <h3>📸 How it should look</h3>
+            
+            <!-- Installer Icon -->
+            <div class="image-card good">
+                <div style="background: #ddd; height: 200px; display: flex; align-items: center; justify-content: center;">
+                    💿 Install Bazzite icon on desktop
+                </div>
+                <p class="image-caption">✅ Double-click this</p>
+            </div>
+            
+            <!-- Installer Window -->
+            <div class="image-card good">
+                <div style="background: #ddd; height: 200px; display: flex; align-items: center; justify-content: center;">
+                    📋 Bazzite Installer - Select drive
+                </div>
+                <p class="image-caption">✅ Pick your internal drive</p>
+            </div>
+            
+            <!-- Installation Complete -->
+            <div class="image-card good">
+                <div style="background: #ddd; height: 200px; display: flex; align-items: center; justify-content: center;">
+                    ✅ Installation Complete! Restart now
+                </div>
+                <p class="image-caption">✅ Done! Click Restart</p>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="step-nav">
+                <button class="nav-btn prev" onclick="goToStep2()">← Previous</button>
+                <button class="nav-btn next" onclick="goToModule2()">Module 2: First Boot →</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Switchmate – Free forever</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/i18n.js"></script>
+    <script src="../../assets/js/modules.js"></script>
+    
+    <script>
+        function copyCommand(btn) {
+            const code = btn.previousElementSibling.textContent;
+            navigator.clipboard.writeText(code);
+            btn.textContent = "✅ Copied!";
+            setTimeout(() => btn.textContent = "📋 Copy", 2000);
+        }
+        
+        function completeStep() {
+            localStorage.setItem('mod1-step3-complete', 'true');
+            localStorage.setItem('mod1-complete', 'true');
+            window.location.href = '../../modules/mod2/step1.html';
+        }
+        
+        function showHelp() {
+            document.getElementById('panic-help').classList.toggle('hidden');
+        }
+        
+        function goToStep2() {
+            window.location.href = 'step2.html';
+        }
+        
+        function goToModule2() {
+            if (localStorage.getItem('mod1-step3-complete')) {
+                window.location.href = '../../modules/mod2/step1.html';
+            } else {
+                alert('Please complete the checkpoint first!');
+            }
+        }
+    </script>
+</body>
+</html>
