@@ -568,3 +568,38 @@ footer a:hover {
 .hidden {
     display: none;
 }
+
+/* Status-Buttons (Abgeschlossen etc.) */
+.module-status {
+    display: inline-block;
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--accent-muted);  /* Dezentes Gold statt weiß */
+    color: var(--text-light);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid var(--accent-gold);
+}
+
+.module-status.completed {
+    background: var(--green-soft);  /* Grün für "Abgeschlossen" */
+    color: var(--bg-dark);
+    border-color: var(--green-soft);
+}
+
+/* Falls die Buttons im Modul selbst sind */
+.checkpoint-btn {
+    background: var(--accent-gold);
+    color: var(--bg-dark);
+    border: none;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.checkpoint-btn:hover {
+    background: var(--accent-muted);
+    color: var(--text-light);
+}
