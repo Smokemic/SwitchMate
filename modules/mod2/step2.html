@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2, Step 2 – Switchmate</title>
+    
+    <!-- PWA Meta -->
+    <meta name="theme-color" content="#0066CC">
+    <link rel="manifest" href="../../manifest.json">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/modules.css">
+</head>
+<body>
+    <!-- Sprachumschalter -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en">
+            <img src="../../assets/images/flags/en.svg" alt="English"> EN
+        </button>
+        <button class="lang-btn" data-lang="de">
+            <img src="../../assets/images/flags/de.svg" alt="Deutsch"> DE
+        </button>
+    </div>
+
+    <!-- Fortschrittsanzeige -->
+    <div class="progress-bar">
+        <div class="progress-container">
+            <div class="progress-step completed">Mod 0</div>
+            <div class="progress-step completed">Mod 1</div>
+            <div class="progress-step completed">2.1</div>
+            <div class="progress-step active">2.2</div>
+        </div>
+    </div>
+
+    <!-- Hauptbereich -->
+    <main class="module-step">
+        <!-- Linke Spalte: Anleitung -->
+        <div class="step-instruction">
+            <div class="module-badge">Module 2: First Days</div>
+            <h1 class="step-title">Step 2: First Updates</h1>
+            
+            <!-- Spur-A: Schnell -->
+            <div class="track track-fast">
+                <h2>⚡ Fast track</h2>
+                <p>Open a terminal (right-click desktop → Open Terminal) and run:</p>
+                
+                <div class="command-box">
+                    <code>ujust update</code>
+                    <button class="copy-btn" onclick="copyCommand(this)">📋 Copy</button>
+                </div>
+                
+                <div class="info-box blue">
+                    <strong>This will:</strong>
+                    <ul>
+                        <li>Update Bazzite to the latest version</li>
+                        <li>Install any new drivers</li>
+                        <li>Take 5-15 minutes</li>
+                    </ul>
+                </div>
+                
+                <p>When asked for password, type your login password.</p>
+            </div>
+            
+            <!-- Spur-B: Verstehen -->
+            <details class="track-slow">
+                <summary>🐢 I want to understand</summary>
+                <div class="slow-content">
+                    <h3>Why update immediately?</h3>
+                    <p>Your USB stick might have an older version. Updating ensures:</p>
+                    <ul>
+                        <li>✅ Latest security fixes</li>
+                        <li>✅ Newest drivers (especially important for NVIDIA)</li>
+                        <li>✅ Bug fixes and improvements</li>
+                    </ul>
+                    
+                    <h3>What is "ujust"?</h3>
+                    <p>Bazzite has special helper commands. <code>ujust update</code> is the simplest way to update everything.</p>
+                    
+                    <h3>Alternative:</h3>
+                    <p>Click the update icon in the bottom right (if visible). But terminal is more reliable.</p>
+                </div>
+            </details>
+            
+            <!-- Checkpoint -->
+            <div class="checkpoint">
+                <h3>✅ Checkpoint</h3>
+                <p>Do you see "System updated successfully"?</p>
+                <button class="checkpoint-btn" onclick="completeStep()">Yes, updated! →</button>
+            </div>
+            
+            <!-- Panik-Knopf -->
+            <div class="panic-box">
+                <button class="panic-btn" onclick="showHelp()">🚨 Update problems? Get help</button>
+                <div id="panic-help" class="panic-content hidden">
+                    <h4>Common issues:</h4>
+                    <ul>
+                        <li><strong>Password not working?</strong> Type carefully – no visual feedback in terminal</li>
+                        <li><strong>Update too slow?</strong> Check your internet connection</li>
+                        <li><strong>Error messages?</strong> Take a photo and <a href="../../campfire/">ask at Campfire</a></li>
+                        <li><strong>Command not found?</strong> Try: <code>rpm-ostree update</code></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Rechte Spalte: Bilder -->
+        <div class="step-visuals">
+            <h3>📸 How it should look</h3>
+            
+            <!-- Terminal -->
+            <div class="image-card good">
+                <div style="background: #ddd; height: 200px; display: flex; align-items: center; justify-content: center;">
+                    💻 Terminal with update running
+                </div>
+                <p class="image-caption">✅ Update in progress</p>
+            </div>
+            
+            <!-- Success -->
+            <div class="image-card good">
+                <div style="background: #ddd; height: 200px; display: flex; align-items: center; justify-content: center;">
+                    ✅ Update complete
+                </div>
+                <p class="image-caption">✅ Done! Ready to use</p>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="step-nav">
+                <button class="nav-btn prev" onclick="goToStep1()">← Previous</button>
+                <button class="nav-btn next" onclick="goToStep3()">Next: Install Apps →</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Switchmate – Free forever</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/i18n.js"></script>
+    <script src="../../assets/js/modules.js"></script>
+    
+    <script>
+        function copyCommand(btn) {
+            const code = btn.previousElementSibling.textContent;
+            navigator.clipboard.writeText(code);
+            btn.textContent = "✅ Copied!";
+            setTimeout(() => btn.textContent = "📋 Copy", 2000);
+        }
+        
+        function completeStep() {
+            localStorage.setItem('mod2-step2-complete', 'true');
+            window.location.href = 'step3.html';
+        }
+        
+        function showHelp() {
+            document.getElementById('panic-help').classList.toggle('hidden');
+        }
+        
+        function goToStep1() {
+            window.location.href = 'step1.html';
+        }
+        
+        function goToStep3() {
+            if (localStorage.getItem('mod2-step2-complete')) {
+                window.location.href = 'step3.html';
+            } else {
+                alert('Please complete the checkpoint first!');
+            }
+        }
+    </script>
+</body>
+</html>
