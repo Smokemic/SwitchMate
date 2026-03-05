@@ -1,191 +1,218 @@
-cat > assets/css/style.css << 'EOF'
-/* Switchmate – Original-Layout, neue Farben */
+/* style.css – Switchmate Hauptdesign */
 
 :root {
-    /* NEUE FARBEN – Cappuccino, Beige, warm */
-    --bg-primary: #f8f5f0;        /* Cappuccino-Hell */
-    --bg-secondary: #e8e0d5;       /* Cappuccino-Mittel */
-    --bg-tertiary: #d8cfc0;        /* Cappuccino-Dunkel */
-    --text-primary: #3a3a3a;       /* Dunkles Grau */
-    --text-secondary: #5a5a5a;      /* Mittelgrau */
-    --accent-primary: #a67c52;      /* Warmes Braun */
-    --accent-secondary: #8b5e3c;     /* Dunkleres Braun */
-    --border-color: #c0b0a0;        /* Beige-Grau */
+    /* Farben – klar und sicher */
+    --blue: #0066CC;
+    --blue-light: #4C9AFF;
+    --blue-dark: #004080;
+    --green: #00A86B;
+    --green-light: #32C48D;
+    --orange: #F5A623;
+    --orange-light: #FFB84D;
+    --red: #D32F2F;
+    --red-light: #EF5350;
     
-    /* Alte Struktur bleibt – nur Farben neu */
-    --blue: #a67c52;        /* Braun statt Blau */
-    --blue-light: #b88d68;
-    --blue-dark: #8b5e3c;
-    --green: #9a8c7a;        /* Gedecktes Grün */
-    --green-light: #b0a28f;
-    --orange: #c09a7a;        /* Warmes Orange */
-    --orange-light: #d0b090;
-    --red: #b55a4a;          /* Gedämpftes Rot */
-    --red-light: #c87a6a;
+    /* Graustufen */
+    --gray-100: #F5F7FA;
+    --gray-200: #E4E7EB;
+    --gray-300: #CBD2D9;
+    --gray-400: #9AA5B1;
+    --gray-500: #52667A;
+    --gray-600: #2D3A4A;
+    --gray-700: #1F2933;
     
-    /* Abstände – exakt wie vorher */
-    --space-xs: 0.25rem;
-    --space-sm: 0.5rem;
-    --space-md: 1rem;
-    --space-lg: 1.5rem;
-    --space-xl: 2rem;
-    
-    --radius-sm: 4px;
-    --radius-md: 8px;
-    --radius-lg: 12px;
+    /* Abstände */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
 }
 
-/* Ab HIER kommt DEINE ALTE style.css – nur die Farben sind neu */
-/* Ich nehm jetzt an, deine alte style.css hatte Klassen wie: */
-body {
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    line-height: 1.6;
+/* Basis */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--space-lg);
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--gray-700);
+    background: linear-gradient(135deg, var(--gray-100) 0%, white 100%);
+    min-height: 100vh;
 }
 
-/* Flaggen – wieder klein */
-.lang-switcher img {
-    width: 24px;
-    height: auto;
-    border-radius: 3px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+/* Sprachumschalter */
+.language-switcher {
+    position: fixed;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    display: flex;
+    gap: var(--spacing-xs);
+    z-index: 1000;
 }
 
-/* Buttons – im alten Stil */
-.btn {
-    display: inline-block;
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-sm);
-    padding: var(--space-sm) var(--space-lg);
-    font-size: 1rem;
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 2px solid var(--gray-300);
+    background: white;
+    border-radius: 30px;
     cursor: pointer;
+    font-weight: 600;
     transition: all 0.2s;
 }
 
-.btn:hover {
-    background-color: var(--accent-primary);
+.lang-btn:hover {
+    border-color: var(--blue);
+    transform: translateY(-2px);
+}
+
+.lang-btn.active {
+    background: var(--blue);
     color: white;
-    border-color: var(--accent-secondary);
+    border-color: var(--blue);
 }
 
-.btn-primary {
-    background-color: var(--accent-primary);
+.lang-btn img {
+    width: 20px;
+    height: 15px;
+    object-fit: cover;
+}
+
+/* Header */
+.main-header {
+    background: linear-gradient(135deg, var(--blue-dark), var(--blue));
     color: white;
-    border-color: var(--accent-secondary);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
 
-/* Boxen – wie früher */
-.box {
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    padding: var(--space-md);
-    margin-bottom: var(--space-md);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+.site-title {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: var(--spacing-sm);
 }
 
-/* Überschriften – alte Größen */
-h1 {
-    font-size: 2.5rem;
-    color: var(--text-primary);
-    margin-bottom: var(--space-lg);
+.site-subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
 }
 
-h2 {
-    font-size: 2rem;
-    color: var(--text-primary);
-    margin-bottom: var(--space-md);
+/* Modul-Grid */
+.module-grid {
+    max-width: 1200px;
+    margin: var(--spacing-xl) auto;
+    padding: 0 var(--spacing-lg);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
 }
 
-/* Fortschrittsbalken – alter Stil */
-.progress-bar {
-    width: 100%;
-    height: 8px;
-    background-color: var(--bg-tertiary);
-    border-radius: var(--radius-sm);
+.module-card {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    text-decoration: none;
+    color: inherit;
+    border: 2px solid var(--gray-200);
+    transition: all 0.2s;
+    position: relative;
     overflow: hidden;
 }
 
-.progress-fill {
-    height: 100%;
-    background-color: var(--accent-primary);
-    transition: width 0.3s ease;
+.module-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--blue);
+    box-shadow: 0 8px 20px rgba(0,102,204,0.1);
 }
 
-/* Navigation – wie vorher */
-.nav-bar {
-    background-color: var(--bg-secondary);
-    border-bottom: 1px solid var(--border-color);
-    padding: var(--space-md) 0;
+.module-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--blue);
+    opacity: 0.2;
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-md);
 }
 
-.nav-menu {
-    list-style: none;
-    display: flex;
-    gap: var(--space-lg);
-    margin: 0;
-    padding: 0;
+.module-card h2 {
+    color: var(--blue-dark);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.5rem;
 }
 
-.nav-link {
-    color: var(--text-primary);
+.module-status {
+    display: inline-block;
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--green);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Campfire-Eingang */
+.campfire-entrance {
+    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+    color: white;
+    padding: var(--spacing-xl) var(--spacing-lg);
+    text-align: center;
+    margin: var(--spacing-xl) 0;
+}
+
+.campfire-entrance h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.campfire-button {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: white;
+    color: var(--orange);
     text-decoration: none;
-    padding: var(--space-xs) 0;
-    border-bottom: 2px solid transparent;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-top: var(--spacing-lg);
+    transition: all 0.2s;
 }
 
-.nav-link:hover,
-.nav-link.active {
-    border-bottom-color: var(--accent-primary);
+.campfire-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 /* Footer */
-.footer {
-    background-color: var(--bg-secondary);
-    border-top: 1px solid var(--border-color);
-    padding: var(--space-xl) 0;
-    margin-top: var(--space-xl);
+footer {
+    background: var(--gray-600);
+    color: white;
     text-align: center;
-    color: var(--text-secondary);
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
 }
-
-/* Hilfsklassen */
-.text-center { text-align: center; }
-.mt-1 { margin-top: var(--space-sm); }
-.mt-2 { margin-top: var(--space-md); }
-.mt-3 { margin-top: var(--space-lg); }
-.mb-1 { margin-bottom: var(--space-sm); }
-.mb-2 { margin-bottom: var(--space-md); }
-.mb-3 { margin-bottom: var(--space-lg); }
-.hidden { display: none; }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .container {
-        padding: var(--space-md);
+    .site-title {
+        font-size: 2.5rem;
     }
     
-    h1 { font-size: 2rem; }
-    h2 { font-size: 1.5rem; }
-    
-    .nav-menu {
-        flex-direction: column;
-        gap: var(--space-sm);
+    .module-grid {
+        grid-template-columns: 1fr;
     }
     
-    .lang-switcher img {
-        width: 20px;
+    .language-switcher {
+        position: static;
+        justify-content: center;
+        padding: var(--spacing-md);
     }
 }
-EOF
