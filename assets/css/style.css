@@ -1,25 +1,27 @@
-/* style.css – Mit deinen Farben, NUR heller Text */
+/* style.css – Mit sanften Abstufungen */
 
 :root {
-    /* Deine Basis-Farben */
-    --bg-dark: #434342;           /* Hintergrund grau */
-    --border-dark: #222126;        /* Umrandung dunkler */
-    --accent-gold: #b59455;        /* Gold-Akzent */
+    /* Basis */
+    --bg-dark: #434342;           /* Hintergrund (dunkelstes Grau) */
+    --border-dark: #222126;        /* Umrandungen */
     
-    /* Aus deiner Liste */
-    --purple: #684fb6;
-    --purple-light: #a239e9;
-    --green-soft: #96fca5;          /* Für Erfolg/Checkpoints */
-    --dark-bg: #2a2930;             /* Sehr dunkles Grau für Karten */
-    --orange-warm: #ee7f2c;          /* Warmes Orange (Campfire) */
-    --gray-soft: #9fa2a3;            /* Helles Grau */
-    --gold-dark: #c5b067;            /* Dunkleres Gold */
-    --brown-warm: #7b4427;           /* Warmes Braun */
+    /* Karten – sanfte Abstufungen */
+    --card-mocha: #5e4b3a;         /* Modul-Karten (Mokka) */
+    --card-mocha-light: #7b6b5a;    /* Hover / besondere Karten */
+    --card-soft: #9fa2a3;           /* Ganz helle Akzente (selten) */
     
-    /* Text – NUR HELL */
-    --text-light: #ffffff;           /* Haupttext (reinweiß) */
-    --text-muted: rgba(255,255,255,0.8); /* Für weniger wichtige Texte */
-    --text-subtle: rgba(255,255,255,0.6); /* Ganz dezent */
+    /* Akzente */
+    --accent-gold: #b59455;         /* Gold für Buttons/Hover */
+    --accent-muted: #8b7a4d;        /* Dezenteres Gold */
+    
+    /* Funktionsfarben */
+    --green-soft: #96fca5;          /* Erfolg */
+    --orange-warm: #ee7f2c;          /* Campfire */
+    
+    /* Text */
+    --text-light: #ffffff;
+    --text-muted: rgba(255,255,255,0.8);
+    --text-soft: rgba(255,255,255,0.6);
     
     /* Abstände */
     --spacing-xs: 0.25rem;
@@ -39,7 +41,7 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    color: var(--text-light);  /* IMMER hell */
+    color: var(--text-light);
     background: var(--bg-dark);
     min-height: 100vh;
 }
@@ -60,8 +62,8 @@ body {
     gap: var(--spacing-xs);
     padding: var(--spacing-sm) var(--spacing-md);
     border: 2px solid var(--border-dark);
-    background: var(--bg-dark);
-    color: var(--text-light);  /* Hell */
+    background: var(--card-mocha-light);
+    color: var(--text-light);
     border-radius: 30px;
     cursor: pointer;
     font-weight: 600;
@@ -70,30 +72,24 @@ body {
 
 .lang-btn:hover {
     border-color: var(--accent-gold);
+    background: var(--card-mocha);
     transform: translateY(-2px);
 }
 
 .lang-btn.active {
     background: var(--accent-gold);
-    color: var(--dark-bg);  /* DUNKLER Text OK, weil heller Hintergrund */
+    color: var(--bg-dark);
     border-color: var(--accent-gold);
-}
-
-.lang-btn img {
-    width: 20px;
-    height: 15px;
-    object-fit: cover;
-    filter: brightness(0.9);
 }
 
 /* Header */
 .main-header {
-    background: linear-gradient(135deg, var(--dark-bg), var(--border-dark));
+    background: linear-gradient(135deg, var(--card-mocha), var(--border-dark));
     color: var(--text-light);
     padding: var(--spacing-xl) 0;
     text-align: center;
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    border-bottom: 3px solid var(--accent-gold);
+    border-bottom: 3px solid var(--accent-muted);
 }
 
 .site-title {
@@ -106,7 +102,7 @@ body {
 .site-subtitle {
     font-size: 1.5rem;
     opacity: 0.9;
-    color: var(--text-muted);  /* Heller, aber dezent */
+    color: var(--text-muted);
 }
 
 /* Modul-Grid */
@@ -119,8 +115,9 @@ body {
     gap: var(--spacing-lg);
 }
 
+/* Normale Modul-Karten (Mokka) */
 .module-card {
-    background: var(--dark-bg);
+    background: var(--card-mocha);
     border-radius: 12px;
     padding: var(--spacing-lg);
     text-decoration: none;
@@ -133,51 +130,74 @@ body {
 
 .module-card:hover {
     transform: translateY(-4px);
-    border-color: var(--accent-gold);
-    box-shadow: 0 8px 20px rgba(181, 148, 85, 0.2);
-    background: #353440;
+    border-color: var(--accent-muted);
+    background: var(--card-mocha-light);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 .module-number {
     font-size: 3rem;
     font-weight: 800;
-    color: var(--accent-gold);
-    opacity: 0.15;
+    color: var(--accent-muted);
+    opacity: 0.2;
     position: absolute;
     top: var(--spacing-sm);
     right: var(--spacing-md);
 }
 
 .module-card h2 {
-    color: var(--text-light);  /* Hell */
+    color: var(--text-light);
     margin-bottom: var(--spacing-sm);
     font-size: 1.5rem;
 }
 
 .module-card p {
-    color: var(--text-muted);  /* Hell, aber etwas blasser */
+    color: var(--text-muted);
 }
 
+/* Besondere Karte (z.B. Campfire) */
+.module-card.special {
+    background: var(--card-mocha-light);
+    border-color: var(--accent-muted);
+}
+
+.module-card.special:hover {
+    background: var(--card-soft);
+    border-color: var(--accent-gold);
+}
+
+.module-card.special .module-number {
+    color: var(--accent-gold);
+    opacity: 0.3;
+}
+
+/* Status-Badge */
 .module-status {
     display: inline-block;
     margin-top: var(--spacing-md);
     padding: var(--spacing-xs) var(--spacing-md);
-    background: var(--green-soft);
-    color: var(--dark-bg);  /* DUNKEL, weil Hintergrund hell */
+    background: var(--accent-muted);
+    color: var(--text-light);
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 600;
 }
 
-/* Campfire-Eingang */
+.module-status.completed {
+    background: var(--green-soft);
+    color: var(--bg-dark);
+}
+
+/* Campfire-Eingang (besondere Karte) */
 .campfire-entrance {
-    background: linear-gradient(135deg, var(--orange-warm), var(--brown-warm));
+    background: var(--card-mocha-light);
     color: var(--text-light);
     padding: var(--spacing-xl) var(--spacing-lg);
     text-align: center;
-    margin: var(--spacing-xl) 0;
-    border-top: 3px solid var(--accent-gold);
-    border-bottom: 3px solid var(--accent-gold);
+    margin: var(--spacing-xl) auto;
+    max-width: 1200px;
+    border-radius: 20px;
+    border: 2px solid var(--accent-muted);
 }
 
 .campfire-entrance h2 {
@@ -190,34 +210,49 @@ body {
     color: var(--text-muted);
 }
 
+.campfire-features {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+    flex-wrap: wrap;
+}
+
+.feature {
+    background: var(--card-mocha);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 30px;
+    border: 1px solid var(--accent-muted);
+}
+
 .campfire-button {
     display: inline-block;
     padding: var(--spacing-md) var(--spacing-xl);
     background: var(--accent-gold);
-    color: var(--dark-bg);  /* DUNKEL, weil Hintergrund hell */
+    color: var(--bg-dark);
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
     font-size: 1.2rem;
-    margin-top: var(--spacing-lg);
     transition: all 0.2s;
     border: 2px solid transparent;
 }
 
 .campfire-button:hover {
     transform: scale(1.05);
-    background: var(--gold-dark);
-    border-color: var(--text-light);
+    background: var(--card-mocha-light);
+    color: var(--text-light);
+    border-color: var(--accent-gold);
 }
 
 /* Features Section */
 .features {
-    background: var(--dark-bg);
+    background: var(--card-mocha);
     padding: var(--spacing-xl) var(--spacing-lg);
 }
 
 .feature-card {
-    background: var(--bg-dark);
+    background: var(--card-mocha-light);
     border: 2px solid var(--border-dark);
     padding: var(--spacing-lg);
     border-radius: 12px;
@@ -233,12 +268,6 @@ body {
     color: var(--text-muted);
 }
 
-.feature-icon {
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-md);
-    color: var(--text-light);
-}
-
 /* Footer */
 footer {
     background: var(--border-dark);
@@ -246,7 +275,7 @@ footer {
     text-align: center;
     padding: var(--spacing-lg);
     margin-top: var(--spacing-xl);
-    border-top: 2px solid var(--accent-gold);
+    border-top: 2px solid var(--accent-muted);
 }
 
 footer a {
@@ -255,145 +284,7 @@ footer a {
 }
 
 footer a:hover {
-    color: var(--gold-dark);
-    text-decoration: underline;
-}
-
-/* Für Modul-Seiten (modules.css Ergänzungen) */
-.progress-step {
-    background: var(--dark-bg);
-    border-color: var(--border-dark);
-    color: var(--text-light);
-}
-
-.progress-step.completed {
-    background: var(--green-soft);
-    border-color: var(--green-soft);
-    color: var(--dark-bg);  /* DUNKEL, weil Hintergrund hell */
-}
-
-.progress-step.active {
-    border-color: var(--accent-gold);
-    color: var(--accent-gold);
-}
-
-.step-instruction {
-    background: var(--dark-bg);
-    border-color: var(--border-dark);
-    color: var(--text-light);
-}
-
-.step-instruction p,
-.step-instruction li,
-.step-instruction summary {
-    color: var(--text-muted);
-}
-
-.step-title {
-    color: var(--text-light);
-}
-
-.module-badge {
-    background: var(--accent-gold);
-    color: var(--dark-bg);  /* DUNKEL, weil Hintergrund hell */
-}
-
-.step-visuals {
-    background: var(--dark-bg);
-    border-color: var(--border-dark);
-}
-
-.image-card {
-    border-color: var(--border-dark);
-}
-
-.image-card.good {
-    border-color: var(--green-soft);
-}
-
-.image-card.error {
-    border-color: #ff6b6b;
-}
-
-.image-caption {
-    color: var(--text-muted);
-}
-
-.command-box {
-    background: var(--border-dark);
-    color: var(--text-light);
-}
-
-.command-box code {
-    color: var(--text-light);
-}
-
-.copy-btn {
-    background: var(--accent-gold);
-    color: var(--dark-bg);  /* DUNKEL, weil Hintergrund hell */
-}
-
-.copy-btn:hover {
-    background: var(--gold-dark);
-}
-
-.checkpoint {
-    background: var(--green-soft);
-    color: var(--dark-bg);  /* DUNKEL, weil Hintergrund hell */
-}
-
-.checkpoint p {
-    color: var(--dark-bg);
-}
-
-.checkpoint-btn {
-    background: var(--dark-bg);
-    color: var(--text-light);
-    border: 2px solid var(--text-light);
-}
-
-.panic-btn {
-    background: #ff6b6b;
-    color: var(--text-light);
-}
-
-.panic-content {
-    background: var(--dark-bg);
-    border-color: #ff6b6b;
-    color: var(--text-light);
-}
-
-.info-box.blue {
-    background: var(--border-dark);
-    color: var(--text-light);
-    border-left: 5px solid var(--accent-gold);
-}
-
-.track-slow summary {
-    background: var(--border-dark);
-    color: var(--text-light);
-}
-
-.slow-content {
-    background: var(--bg-dark);
-    color: var(--text-muted);
-}
-
-.nav-btn {
-    background: transparent;
-    border: 2px solid var(--accent-gold);
-    color: var(--text-light);
-}
-
-.nav-btn:hover:not(:disabled) {
-    background: var(--accent-gold);
-    color: var(--dark-bg);
-}
-
-.nav-btn:disabled {
-    opacity: 0.3;
-    border-color: var(--border-dark);
-    color: var(--text-muted);
+    color: var(--card-soft);
 }
 
 /* Responsive */
@@ -410,5 +301,10 @@ footer a:hover {
         position: static;
         justify-content: center;
         padding: var(--spacing-md);
+    }
+    
+    .campfire-features {
+        flex-direction: column;
+        gap: var(--spacing-sm);
     }
 }
