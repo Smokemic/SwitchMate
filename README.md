@@ -57,7 +57,7 @@ Switchmate has a heart: **Campfire**.
 
 Here you can:
 - Relax by the 3D fire
-- Chat with Bazzi
+- Chat with Bazzi your helper 
 - Experiment safely in the terminal playground
 - Deepen what you've learned without consequences
 
@@ -125,7 +125,7 @@ Switchmate hat ein Herz: **Campfire**.
 
 Hier kannst du:
 - Am 3D-Feuer entspannen
-- Mit Bazzi quatschen
+- Mit Bazzi quatschen Dein helfer
 - Im Terminal-Spielplatz gefahrlos rumprobieren
 - Das Gelernte vertiefen, ohne Konsequenzen
 
