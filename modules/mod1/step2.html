@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1, Step 2 – Switchmate</title>
+    
+    <!-- PWA Meta -->
+    <meta name="theme-color" content="#0066CC">
+    <link rel="manifest" href="../../manifest.json">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/modules.css">
+</head>
+<body>
+    <!-- Sprachumschalter -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en">
+            <img src="../../assets/images/flags/en.svg" alt="English"> EN
+        </button>
+        <button class="lang-btn" data-lang="de">
+            <img src="../../assets/images/flags/de.svg" alt="Deutsch"> DE
+        </button>
+    </div>
+
+    <!-- Fortschrittsanzeige -->
+    <div class="progress-bar">
+        <div class="progress-container">
+            <div class="progress-step completed">Mod 0</div>
+            <div class="progress-step completed">1.1</div>
+            <div class="progress-step active">1.2</div>
+            <div class="progress-step">1.3</div>
+        </div>
+    </div>
+
+    <!-- Hauptbereich -->
+    <main class="module-step">
+        <!-- Linke Spalte: Anleitung -->
+        <div class="step-instruction">
+            <div class="module-badge">Module 1: The USB Stick</div>
+            <h1 class="step-title">Step 2: Test Bazzite (Try Mode)</h1>
+            
+            <!-- Spur-A: Schnell -->
+            <div class="track track-fast">
+                <h2>⚡ Fast track</h2>
+                <p>When Bazzite boots, you'll see:</p>
+                
+                <div class="command-box">
+                    <code>→ Try Bazzite (Test without installing)</code>
+                    <button class="copy-btn" onclick="copyCommand(this)">📋 Copy</button>
+                </div>
+                
+                <div class="info-box blue">
+                    <strong>Select it with arrow keys and press Enter.</strong>
+                </div>
+                
+                <p>Wait 1-2 minutes... Bazzite will start from USB!</p>
+            </div>
+            
+            <!-- Spur-B: Verstehen -->
+            <details class="track-slow">
+                <summary>🐢 I want to understand</summary>
+                <div class="slow-content">
+                    <h3>What is "Try Mode"?</h3>
+                    <p>Bazzite runs completely from your USB stick. Nothing is installed to your PC yet. It's safe to test:</p>
+                    <ul>
+                        <li>✅ Check if everything works (WiFi, sound, graphics)</li>
+                        <li>✅ Look around – it's the same as installed Bazzite</li>
+                        <li>✅ Nothing is saved – restart and it's fresh again</li>
+                    </ul>
+                    
+                    <h3>First things to test:</h3>
+                    <ul>
+                        <li><strong>WiFi:</strong> Click top-right, connect</li>
+                        <li><strong>Sound:</strong> Play a test sound</li>
+                        <li><strong>Display:</strong> Correct resolution?</li>
+                    </ul>
+                </div>
+            </details>
+            
+            <!-- Checkpoint -->
+            <div class="checkpoint">
+                <h3>✅ Checkpoint</h3>
+                <p>Are you looking at the Bazzite desktop? Everything working?</p>
+                <button class="checkpoint-btn" onclick="completeStep()">Yes, everything works! →</button>
+            </div>
+            
+            <!-- Panik-Knopf -->
+            <div class="panic-box">
+                <button class="panic-btn" onclick="showHelp()">🚨 Problems in Try Mode? Get help</button>
+                <div id="panic-help" class="panic-content hidden">
+                    <h4>Common issues:</h4>
+                    <ul>
+                        <li><strong>No WiFi?</strong> Try wired internet or restart with USB</li>
+                        <li><strong>Screen flickers?</strong> Might be graphics driver – still safe to install</li>
+                        <li><strong>Slow?</strong> USB 2.0 is slow – be patient, installation will be faster</li>
+                        <li><strong>Stuck on boot?</strong> Try the "Basic Graphics Mode" in boot menu</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Rechte Spalte: Bilder -->
+        <div class="step-visuals">
+            <h3>📸 How it should look</h3>
+            
+            <!-- Boot Menu -->
+            <div class="image-card good">
+                <div style="background: #ddd; height: 200px; display: flex; align-items: center; justify-content: center;">
+                    📋 Bazzite boot menu - "Try Bazzite" selected
+                </div>
+                <p class="image-caption">✅ Select "Try Bazzite"</p>
+            </div>
+            
+            <!-- Bazzite Desktop -->
+            <div class="image-card good">
+                <div style="background: #ddd; height: 200px; display: flex; align-items: center; justify-content: center;">
+                    🖥️ Bazzite Desktop (from USB)
+                </div>
+                <p class="image-caption">✅ Success! You're in Try Mode</p>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="step-nav">
+                <button class="nav-btn prev" onclick="goToStep1()">← Previous</button>
+                <button class="nav-btn next" onclick="goToStep3()">Next: Install Bazzite →</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Switchmate – Free forever</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/i18n.js"></script>
+    <script src="../../assets/js/modules.js"></script>
+    
+    <script>
+        function copyCommand(btn) {
+            const code = btn.previousElementSibling.textContent;
+            navigator.clipboard.writeText(code);
+            btn.textContent = "✅ Copied!";
+            setTimeout(() => btn.textContent = "📋 Copy", 2000);
+        }
+        
+        function completeStep() {
+            localStorage.setItem('mod1-step2-complete', 'true');
+            window.location.href = 'step3.html';
+        }
+        
+        function showHelp() {
+            document.getElementById('panic-help').classList.toggle('hidden');
+        }
+        
+        function goToStep1() {
+            window.location.href = 'step1.html';
+        }
+        
+        function goToStep3() {
+            if (localStorage.getItem('mod1-step2-complete')) {
+                window.location.href = 'step3.html';
+            } else {
+                alert('Please complete the checkpoint first!');
+            }
+        }
+    </script>
+</body>
+</html>
