@@ -1,23 +1,24 @@
-/* style.css – Switchmate mit warmen Farben (Cappuccino, Beige, Orange) */
+/* style.css – Warme, weiche Farben (Cappuccino/Beige) */
 
 :root {
-    /* Warme Farbpalette */
-    --warm-beige: #F5E6D3;      /* Cappuccino-Basis */
-    --warm-cream: #FAF0E6;      /* Helles Beige */
-    --warm-orange: #FF8C42;     /* Warmes Orange (wie Lagerfeuer) */
+    /* Warme, weiche Farbpalette */
+    --warm-beige-light: #FAF3E8;    /* Ganz helles Cappuccino */
+    --warm-beige: #F5E6D3;           /* Cappuccino-Basis */
+    --warm-beige-dark: #E6D5C0;      /* Dunkleres Beige */
+    --warm-orange: #FF8C42;           /* Warmes Orange (Akzente) */
     --warm-orange-light: #FFB26B;
     --warm-orange-dark: #E67E22;
-    --warm-brown: #8B5A2B;       /* Für Akzente */
-    --warm-gray: #A98B7A;        /* Warmes Grau */
+    --warm-brown: #8B6F50;            /* Für Text/Basis */
+    --warm-brown-light: #B39274;
     
-    /* Neutrale Farben (angepasst) */
-    --gray-100: #FFF9F2;         /* Ganz helles Beige */
-    --gray-200: #F5E6D3;         /* Cappuccino */
-    --gray-300: #E6D5C0;         /* Etwas dunkler */
-    --gray-400: #D4B99B;         /* Mittel */
-    --gray-500: #B39274;         /* Dunkleres Beige */
-    --gray-600: #8B6F50;         /* Braun-ton */
-    --gray-700: #5E4B3A;         /* Dunkelbraun */
+    /* Neutrale Farben (alle wärmer) */
+    --gray-100: #FFF9F2;              /* Hintergrund hell */
+    --gray-200: #F5E6D3;              /* Karten-Hintergrund */
+    --gray-300: #E6D5C0;              /* Borders */
+    --gray-400: #D4B99B;              /* Icons/Akzente */
+    --gray-500: #B39274;              /* Sekundärtext */
+    --gray-600: #8B6F50;              /* Haupttext */
+    --gray-700: #5E4B3A;              /* Dunkler Text */
     
     /* Abstände (gleich) */
     --spacing-xs: 0.25rem;
@@ -38,7 +39,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
     color: var(--gray-700);
-    background: linear-gradient(135deg, var(--gray-100) 0%, var(--warm-cream) 100%);
+    background: var(--gray-100);  /* Heller, warmer Hintergrund */
     min-height: 100vh;
 }
 
@@ -58,7 +59,7 @@ body {
     gap: var(--spacing-xs);
     padding: var(--spacing-sm) var(--spacing-md);
     border: 2px solid var(--gray-300);
-    background: white;
+    background: var(--gray-100);
     border-radius: 30px;
     cursor: pointer;
     font-weight: 600;
@@ -113,12 +114,12 @@ body {
 }
 
 .module-card {
-    background: white;
+    background: var(--gray-200);  /* Cappuccino-Hintergrund */
     border-radius: 12px;
     padding: var(--spacing-lg);
     text-decoration: none;
     color: inherit;
-    border: 2px solid var(--gray-200);
+    border: 2px solid var(--gray-300);
     transition: all 0.2s;
     position: relative;
     overflow: hidden;
@@ -128,6 +129,7 @@ body {
     transform: translateY(-4px);
     border-color: var(--warm-orange);
     box-shadow: 0 8px 20px rgba(255, 140, 66, 0.15);
+    background: var(--gray-100);
 }
 
 .module-number {
@@ -141,9 +143,13 @@ body {
 }
 
 .module-card h2 {
-    color: var(--warm-brown);
+    color: var(--gray-700);
     margin-bottom: var(--spacing-sm);
     font-size: 1.5rem;
+}
+
+.module-card p {
+    color: var(--gray-600);
 }
 
 .module-status {
@@ -157,7 +163,7 @@ body {
     font-weight: 600;
 }
 
-/* Campfire-Eingang (bleibt warm) */
+/* Campfire-Eingang */
 .campfire-entrance {
     background: linear-gradient(135deg, var(--warm-orange), var(--warm-orange-light));
     color: white;
@@ -169,6 +175,11 @@ body {
 .campfire-entrance h2 {
     font-size: 2.5rem;
     margin-bottom: var(--spacing-md);
+    color: white;
+}
+
+.campfire-entrance p {
+    color: rgba(255,255,255,0.9);
 }
 
 .campfire-button {
@@ -189,6 +200,25 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
+/* Features Section (auf der Hauptseite) */
+.features {
+    background: var(--gray-200);
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.feature-card {
+    background: var(--gray-100);
+    border: 2px solid var(--gray-300);
+}
+
+.feature-card h3 {
+    color: var(--gray-700);
+}
+
+.feature-card p {
+    color: var(--gray-600);
+}
+
 /* Footer */
 footer {
     background: var(--warm-brown);
@@ -196,6 +226,15 @@ footer {
     text-align: center;
     padding: var(--spacing-lg);
     margin-top: var(--spacing-xl);
+}
+
+footer a {
+    color: var(--warm-orange-light);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
 }
 
 /* Responsive */
