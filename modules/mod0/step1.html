@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 0, Step 1 – Switchmate</title>
+    
+    <!-- PWA Meta -->
+    <meta name="theme-color" content="#0066CC">
+    <link rel="manifest" href="../../manifest.json">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/modules.css">
+</head>
+<body>
+    <!-- Sprachumschalter -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en">
+            <img src="../../assets/images/flags/en.svg" alt="English"> EN
+        </button>
+        <button class="lang-btn" data-lang="de">
+            <img src="../../assets/images/flags/de.svg" alt="Deutsch"> DE
+        </button>
+    </div>
+
+    <!-- Fortschrittsanzeige -->
+    <div class="progress-bar">
+        <div class="progress-container">
+            <div class="progress-step completed">0.1</div>
+            <div class="progress-step active">0.2</div>
+            <div class="progress-step">0.3</div>
+            <div class="progress-step">0.4</div>
+        </div>
+    </div>
+
+    <!-- Hauptbereich -->
+    <main class="module-step">
+        <!-- Linke Spalte: Anleitung -->
+        <div class="step-instruction">
+            <div class="module-badge">Module 0: Before the Leap</div>
+            <h1 class="step-title">Step 1: Check your hardware</h1>
+            
+            <!-- Spur-A: Schnell -->
+            <div class="track track-fast">
+                <h2>⚡ Fast track</h2>
+                <p>Open the terminal and run:</p>
+                
+                <div class="command-box">
+                    <code>lspci | grep -E "VGA|3D"</code>
+                    <button class="copy-btn" onclick="copyCommand(this)">📋 Copy</button>
+                </div>
+                
+                <div class="info-box blue">
+                    <strong>This shows your graphics card.</strong>
+                    <p>Look for: NVIDIA, AMD, or Intel</p>
+                </div>
+            </div>
+            
+            <!-- Spur-B: Verstehen -->
+            <details class="track-slow">
+                <summary>🐢 I want to understand</summary>
+                <div class="slow-content">
+                    <h3>Why check hardware?</h3>
+                    <p>Bazzite handles most hardware automatically, but your graphics card (GPU) matters:</p>
+                    <ul>
+                        <li><strong>NVIDIA:</strong> Works, but needs proprietary drivers (included)</li>
+                        <li><strong>AMD:</strong> Perfect, open-source drivers built-in</li>
+                        <li><strong>Intel:</strong> Also perfect, great for laptops</li>
+                    </ul>
+                    <p>The command <code>lspci</code> lists all PCI devices. We filter for VGA (graphics) and 3D controllers.</p>
+                </div>
+            </details>
+            
+            <!-- Checkpoint -->
+            <div class="checkpoint">
+                <h3>✅ Checkpoint</h3>
+                <p>Did you see your graphics card? If yes, you're good to go!</p>
+                <button class="checkpoint-btn" onclick="completeStep()">Yes, next step →</button>
+            </div>
+            
+            <!-- Panik-Knopf -->
+            <div class="panic-box">
+                <button class="panic-btn" onclick="showHelp()">🚨 Nothing works? Get help</button>
+                <div id="panic-help" class="panic-content hidden">
+                    <h4>Common issues:</h4>
+                    <ul>
+                        <li><strong>No output?</strong> Try: <code>lspci | grep VGA</code></li>
+                        <li><strong>Terminal not found?</strong> Press Super (Windows key), type "terminal"</li>
+                        <li><strong>Still stuck?</strong> Take a photo and <a href="../../campfire/">ask Bazzi at Campfire</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Rechte Spalte: Bilder -->
+        <div class="step-visuals">
+            <h3>📸 How it should look</h3>
+            
+            <!-- Soll-Bild -->
+            <div class="image-card good">
+                <img src="../../assets/images/modules/mod0/step1-correct.png" alt="Correct terminal output">
+                <p class="image-caption">✅ Correct output – you see your GPU</p>
+                <button class="zoom-btn" onclick="zoomImage(this)">🔍 Zoom</button>
+            </div>
+            
+            <!-- Fehler-Bild (später) -->
+            <div class="image-card error">
+                <img src="../../assets/images/modules/mod0/step1-error.png" alt="Error example">
+                <p class="image-caption">❌ If you see this – click help above</p>
+                <button class="zoom-btn" onclick="zoomImage(this)">🔍 Zoom</button>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="step-nav">
+                <button class="nav-btn prev" disabled>← Previous</button>
+                <button class="nav-btn next" onclick="goToStep2()">Next: Secure Boot →</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Switchmate – Free forever</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/i18n.js"></script>
+    <script src="../../assets/js/modules.js"></script>
+    
+    <script>
+        // Kopier-Funktion
+        function copyCommand(btn) {
+            const code = btn.previousElementSibling.textContent;
+            navigator.clipboard.writeText(code);
+            btn.textContent = "✅ Copied!";
+            setTimeout(() => btn.textContent = "📋 Copy", 2000);
+        }
+        
+        // Step abschließen
+        function completeStep() {
+            localStorage.setItem('mod0-step1-complete', 'true');
+            window.location.href = 'step2.html';
+        }
+        
+        // Hilfe anzeigen
+        function showHelp() {
+            document.getElementById('panic-help').classList.toggle('hidden');
+        }
+        
+        // Zoom
+        function zoomImage(btn) {
+            const img = btn.previousElementSibling.previousElementSibling;
+            img.classList.toggle('zoomed');
+            btn.textContent = img.classList.contains('zoomed') ? '🔍 Zoom out' : '🔍 Zoom';
+        }
+        
+        // Nächster Schritt
+        function goToStep2() {
+            if (localStorage.getItem('mod0-step1-complete')) {
+                window.location.href = 'step2.html';
+            } else {
+                alert('Please complete the checkpoint first!');
+            }
+        }
+    </script>
+</body>
+</html>

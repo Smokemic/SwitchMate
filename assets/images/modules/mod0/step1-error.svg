@@ -1,0 +1,6 @@
+<svg width="600" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="300" fill="#1e1e1e"/>
+  <text x="30" y="50" fill="#00ff00" font-family="monospace" font-size="14">$ lspci | grep -E "VGA|3D"</text>
+  <text x="30" y="100" fill="#ff5555" font-family="monospace" font-size="14">(no output)</text>
+  <text x="30" y="150" fill="#ff5555" font-family="monospace" font-size="14">❌ No GPU detected or wrong command</text>
+</svg>

@@ -1,0 +1,298 @@
+/* modules.css – Spezielle Styles für die Modul-Seiten */
+
+/* Progress Bar */
+.progress-bar {
+    background: var(--gray-200);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--gray-300);
+}
+
+.progress-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--spacing-md);
+}
+
+.progress-step {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    border: 3px solid var(--gray-300);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--gray-500);
+}
+
+.progress-step.completed {
+    background: var(--green);
+    border-color: var(--green);
+    color: white;
+}
+
+.progress-step.active {
+    border-color: var(--blue);
+    color: var(--blue);
+    font-weight: 800;
+    transform: scale(1.1);
+}
+
+/* Modul-Step Layout */
+.module-step {
+    max-width: 1400px;
+    margin: var(--spacing-xl) auto;
+    padding: 0 var(--spacing-lg);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+}
+
+/* Linke Spalte – Anleitung */
+.step-instruction {
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+    border: 2px solid var(--gray-200);
+}
+
+.module-badge {
+    display: inline-block;
+    background: var(--blue);
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+.step-title {
+    font-size: 2.5rem;
+    color: var(--blue-dark);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Tracks */
+.track {
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    background: var(--gray-100);
+}
+
+.track-fast {
+    border-left: 5px solid var(--green);
+}
+
+.command-box {
+    background: var(--gray-700);
+    color: white;
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: var(--spacing-md) 0;
+}
+
+.command-box code {
+    font-size: 1.2rem;
+    font-family: 'Courier New', monospace;
+}
+
+.copy-btn {
+    background: var(--blue);
+    color: white;
+    border: none;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.copy-btn:hover {
+    background: var(--blue-dark);
+}
+
+/* Info Boxes */
+.info-box {
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    margin: var(--spacing-md) 0;
+}
+
+.info-box.blue {
+    background: #E3F2FD;
+    border-left: 5px solid var(--blue);
+}
+
+/* Slow Track */
+.track-slow {
+    margin-bottom: var(--spacing-lg);
+}
+
+.track-slow summary {
+    background: var(--gray-200);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.slow-content {
+    padding: var(--spacing-lg);
+    background: var(--gray-100);
+    border-radius: 0 0 8px 8px;
+}
+
+/* Checkpoint */
+.checkpoint {
+    background: var(--green-light);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    margin: var(--spacing-lg) 0;
+    color: white;
+}
+
+.checkpoint-btn {
+    background: white;
+    color: var(--green);
+    border: none;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: var(--spacing-md);
+}
+
+/* Panic Box */
+.panic-box {
+    margin-top: var(--spacing-lg);
+}
+
+.panic-btn {
+    background: var(--red);
+    color: white;
+    border: none;
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+}
+
+.panic-content {
+    background: #FFEBEE;
+    border: 2px solid var(--red);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Rechte Spalte – Bilder */
+.step-visuals {
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+    border: 2px solid var(--gray-200);
+}
+
+.image-card {
+    margin-bottom: var(--spacing-lg);
+    border: 2px solid var(--gray-200);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.image-card.good {
+    border-color: var(--green);
+}
+
+.image-card.error {
+    border-color: var(--red);
+}
+
+.image-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-card img.zoomed {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90vw;
+    max-height: 90vh;
+    z-index: 2000;
+    border: 5px solid white;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.image-caption {
+    padding: var(--spacing-sm);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.zoom-btn {
+    width: 100%;
+    padding: var(--spacing-sm);
+    background: var(--gray-200);
+    border: none;
+    cursor: pointer;
+}
+
+/* Navigation */
+.step-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--spacing-lg);
+}
+
+.nav-btn {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: 2px solid var(--blue);
+    background: white;
+    color: var(--blue);
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.nav-btn:hover:not(:disabled) {
+    background: var(--blue);
+    color: white;
+}
+
+.nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .module-step {
+        grid-template-columns: 1fr;
+    }
+    
+    .step-title {
+        font-size: 2rem;
+    }
+    
+    .progress-container {
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
+    }
+}

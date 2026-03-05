@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 4, Step 3 – Switchmate</title>
+    
+    <!-- PWA Meta -->
+    <meta name="theme-color" content="#0066CC">
+    <link rel="manifest" href="../../manifest.json">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/modules.css">
+</head>
+<body>
+    <!-- Sprachumschalter -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en">
+            <img src="../../assets/images/flags/en.svg" alt="English"> EN
+        </button>
+        <button class="lang-btn" data-lang="de">
+            <img src="../../assets/images/flags/de.svg" alt="Deutsch"> DE
+        </button>
+    </div>
+
+    <!-- Fortschrittsanzeige -->
+    <div class="progress-bar">
+        <div class="progress-container">
+            <div class="progress-step completed">Mod 0</div>
+            <div class="progress-step completed">Mod 1</div>
+            <div class="progress-step completed">Mod 2</div>
+            <div class="progress-step completed">Mod 3</div>
+            <div class="progress-step completed">4.1</div>
+            <div class="progress-step completed">4.2</div>
+            <div class="progress-step active">4.3</div>
+        </div>
+    </div>
+
+    <!-- Hauptbereich -->
+    <main class="module-step">
+        <!-- Linke Spalte: Anleitung -->
+        <div class="step-instruction">
+            <div class="module-badge">Module 4: Emergency Kit</div>
+            <h1 class="step-title">Step 3: Going Back to Windows</h1>
+            
+            <!-- Spur-A: Schnell -->
+            <div class="track track-fast">
+                <h2>⚡ Fast track</h2>
+                <p><strong>If you want to remove Bazzite and keep only Windows:</strong></p>
+                
+                <div class="info-box blue">
+                    <ol style="margin-left: var(--spacing-lg);">
+                        <li>Boot Windows normally (choose in boot menu)</li>
+                        <li>Open Disk Management (right-click Start)</li>
+                        <li>Find Bazzite partitions (EXT4, no drive letter)</li>
+                        <li>Delete them, extend Windows partition</li>
+                    </ol>
+                </div>
+                
+                <div class="command-box">
+                    <code>⚠️ This will delete all Bazzite files!</code>
+                </div>
+                
+                <p>Or use command line (admin):</p>
+                <div class="command-box">
+                    <code>diskpart → list disk → select disk → list partition</code>
+                    <button class="copy-btn" onclick="copyCommand(this)">📋 Copy</button>
+                </div>
+            </div>
+            
+            <!-- Spur-B: Verstehen -->
+            <details class="track-slow">
+                <summary>🐢 I want to understand</summary>
+                <div class="slow-content">
+                    <h3>What happens to Bazzite files?</h3>
+                    <p>If you delete the partitions:</p>
+                    <ul>
+                        <li>❌ All Bazzite files, apps, settings are gone</li>
+                        <li>❌ Games installed on Linux partitions are gone</li>
+                        <li>✅ Files on shared NTFS (Windows) partitions stay</li>
+                    </ul>
+                    
+                    <h3>Alternative: Keep dual boot</h3>
+                    <p>You can just keep both! At boot, choose:</p>
+                    <ul>
+                        <li><strong>Windows Boot Manager</strong> → Windows</li>
+                        <li><strong>Bazzite</strong> → Bazzite</li>
+                    </ul>
+                    
+                    <h3>If boot menu disappeared:</h3>
+                    <p>Enter BIOS (F2/Del) and change boot order back to Windows Boot Manager.</p>
+                    
+                    <div class="info-box blue">
+                        <strong>Pro tip:</strong> Backup important files from Bazzite first! Boot from USB, mount disk, copy files.
+                    </div>
+                </div>
+            </details>
+            
+            <!-- Checkpoint -->
+            <div class="checkpoint">
+                <h3>✅ Checkpoint</h3>
+                <p>Are you back to Windows only? Or happy with dual boot?</p>
+                <button class="checkpoint-btn" onclick="completeStep()">Done! Switchmate completed →</button>
+            </div>
+            
+            <!-- Panik-Knopf -->
+            <div class="panic-box">
+                <button class="panic-btn" onclick="showHelp()">🚨 Windows won't boot? Emergency help</button>
+                <div id="panic-help" class="panic-content hidden">
+                    <h4>Windows boot problems:</h4>
+                    <ul>
+                        <li><strong>No boot menu:</strong> Enter BIOS (F2/Del), set Windows Boot Manager as first</li>
+                        <li><strong>Windows doesn't start:</strong> Use Windows installation USB → Repair</li>
+                        <li><strong>Bootrec commands:</strong> <code>bootrec /fixmbr</code>, <code>bootrec /fixboot</code></li>
+                        <li><strong>Grub still there:</strong> You can keep it – just choose Windows</li>
+                    </ul>
+                    <p style="margin-top: var(--spacing-md);"><strong>Get help:</strong> <a href="../../campfire/">Ask Bazzi at Campfire</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Rechte Spalte: Bilder -->
+        <div class="step-visuals">
+            <h3>📸 How it should look</h3>
+            
+            <!-- Disk Management -->
+            <div class="image-card good">
+                <div style="background: #ddd; height: 200px; display: flex; align-items: center; justify-content: center;">
+                    💽 Windows Disk Management
+                </div>
+                <p class="image-caption">✅ Find and delete Linux partitions</p>
+            </div>
+            
+            <!-- Boot menu -->
+            <div class="image-card good">
+                <div style="background: #ddd; height: 200px; display: flex; align-items: center; justify-content: center;">
+                    📋 Boot menu with Windows and Bazzite
+                </div>
+                <p class="image-caption">✅ Dual boot – you can keep both!</p>
+            </div>
+            
+            <!-- Congratulations -->
+            <div class="image-card good">
+                <div style="background: #ddd; height: 200px; display: flex; align-items: center; justify-content: center; background: var(--green); color: white;">
+                    🎉 You made it! Welcome to Bazzite (or back to Windows)!
+                </div>
+                <p class="image-caption">✅ Switchmate completed</p>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="step-nav">
+                <button class="nav-btn prev" onclick="goToStep2()">← Previous</button>
+                <button class="nav-btn next" onclick="goToCampfire()">🎉 Celebrate at Campfire! →</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Switchmate – Free forever</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/i18n.js"></script>
+    <script src="../../assets/js/modules.js"></script>
+    
+    <script>
+        function copyCommand(btn) {
+            const code = btn.previousElementSibling.textContent;
+            navigator.clipboard.writeText(code);
+            btn.textContent = "✅ Copied!";
+            setTimeout(() => btn.textContent = "📋 Copy", 2000);
+        }
+        
+        function completeStep() {
+            localStorage.setItem('mod4-step3-complete', 'true');
+            localStorage.setItem('mod4-complete', 'true');
+            localStorage.setItem('switchmate-complete', 'true');
+            window.location.href = '../../campfire/';
+        }
+        
+        function showHelp() {
+            document.getElementById('panic-help').classList.toggle('hidden');
+        }
+        
+        function goToStep2() {
+            window.location.href = 'step2.html';
+        }
+        
+        function goToCampfire() {
+            window.location.href = '../../campfire/';
+        }
+    </script>
+</body>
+</html>

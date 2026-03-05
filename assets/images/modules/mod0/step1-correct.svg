@@ -1,0 +1,6 @@
+<svg width="600" height="300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="300" fill="#1e1e1e"/>
+  <text x="30" y="50" fill="#00ff00" font-family="monospace" font-size="14">$ lspci | grep -E "VGA|3D"</text>
+  <text x="30" y="100" fill="#ffffff" font-family="monospace" font-size="14">01:00.0 VGA compatible controller: NVIDIA Corporation GA106 [GeForce RTX 3060]</text>
+  <text x="30" y="150" fill="#00ff00" font-family="monospace" font-size="14">✅ GPU detected: NVIDIA RTX 3060</text>
+</svg>
