@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 4, Step 1 – Switchmate</title>
+    
+    <!-- PWA Meta -->
+    <meta name="theme-color" content="#0066CC">
+    <link rel="manifest" href="../../manifest.json">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/modules.css">
+</head>
+<body>
+    <!-- Sprachumschalter -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en">
+            <img src="../../assets/images/flags/en.svg" alt="English"> EN
+        </button>
+        <button class="lang-btn" data-lang="de">
+            <img src="../../assets/images/flags/de.svg" alt="Deutsch"> DE
+        </button>
+    </div>
+
+    <!-- Fortschrittsanzeige -->
+    <div class="progress-bar">
+        <div class="progress-container">
+            <div class="progress-step completed">Mod 0</div>
+            <div class="progress-step completed">Mod 1</div>
+            <div class="progress-step completed">Mod 2</div>
+            <div class="progress-step completed">Mod 3</div>
+            <div class="progress-step active">4.1</div>
+        </div>
+    </div>
+
+    <!-- Hauptbereich -->
+    <main class="module-step">
+        <!-- Linke Spalte: Anleitung -->
+        <div class="step-instruction">
+            <div class="module-badge">Module 4: Emergency Kit</div>
+            <h1 class="step-title">Step 1: Boot Problems</h1>
+            
+            <!-- Spur-A: Schnell -->
+            <div class="track track-fast">
+                <h2>⚡ Fast track</h2>
+                <p><strong>If Bazzite won't boot:</strong></p>
+                
+                <div class="info-box blue">
+                    <ol style="margin-left: var(--spacing-lg);">
+                        <li>Restart and hold Shift (or spam Esc)</li>
+                        <li>You'll see a boot menu</li>
+                        <li>Choose "Advanced options"</li>
+                        <li>Select an older kernel (version)</li>
+                    </ol>
+                </div>
+                
+                <div class="command-box">
+                    <code>💾 Boot with previous kernel</code>
+                    <button class="copy-btn" onclick="copyCommand(this)">📋 Copy</button>
+                </div>
+            </div>
+            
+            <!-- Spur-B: Verstehen -->
+            <details class="track-slow">
+                <summary>🐢 I want to understand</summary>
+                <div class="slow-content">
+                    <h3>Why won't it boot?</h3>
+                    <ul>
+                        <li><strong>Bad update:</strong> Sometimes a new kernel has issues</li>
+                        <li><strong>Graphics driver:</strong> NVIDIA/AMD driver problems</li>
+                        <li><strong>Corrupted files:</strong> Rare, but possible</li>
+                    </ul>
+                    
+                    <h3>Solutions:</h3>
+                    <ul>
+                        <li><strong>Boot old kernel:</strong> Safe option, works 90% of time</li>
+                        <li><strong>Boot from USB:</strong> Use your installation USB to repair</li>
+                        <li><strong>Rollback update:</strong> <code>rpm-ostree rollback</code> in terminal</li>
+                    </ul>
+                    
+                    <div class="info-box blue">
+                        <strong>Remember:</strong> Your Windows is still there! Hold F2/Del at boot to choose Windows.
+                    </div>
+                </div>
+            </details>
+            
+            <!-- Checkpoint -->
+            <div class="checkpoint">
+                <h3>✅ Checkpoint</h3>
+                <p>Did you manage to boot Bazzite (even with old kernel)?</p>
+                <button class="checkpoint-btn" onclick="completeStep()">Yes, back in Bazzite! →</button>
+            </div>
+            
+            <!-- Panik-Knopf -->
+            <div class="panic-box">
+                <button class="panic-btn" onclick="showHelp()">🚨 Still can't boot? Emergency help</button>
+                <div id="panic-help" class="panic-content hidden">
+                    <h4>Last resort options:</h4>
+                    <ul>
+                        <li><strong>Boot from USB:</strong> Use your installation USB, choose "Try Bazzite"</li>
+                        <li><strong>Mount and backup files:</strong> From USB, you can access your disk</li>
+                        <li><strong>Reinstall:</strong> From USB, you can reinstall (keeps your files if you choose wisely)</li>
+                        <li><strong>Windows:</strong> Boot to Windows via BIOS (F2/Del) – everything is still there</li>
+                    </ul>
+                    <p style="margin-top: var(--spacing-md);"><strong>Get help:</strong> <a href="../../campfire/">Ask Bazzi at Campfire</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Rechte Spalte: Bilder -->
+        <div class="step-visuals">
+            <h3>📸 How it should look</h3>
+            
+            <!-- Boot menu -->
+            <div class="image-card good">
+                <div style="background: #ddd; height: 200px; display: flex; align-items: center; justify-content: center;">
+                    📋 GRUB boot menu - Advanced options
+                </div>
+                <p class="image-caption">✅ Choose older kernel</p>
+            </div>
+            
+            <!-- USB boot -->
+            <div class="image-card good">
+                <div style="background: #ddd; height: 200px; display: flex; align-items: center; justify-content: center;">
+                    💿 Booting from USB stick
+                </div>
+                <p class="image-caption">✅ Emergency boot from USB</p>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="step-nav">
+                <button class="nav-btn prev" onclick="goToMod3()">← Module 3</button>
+                <button class="nav-btn next" onclick="goToStep2()">Next: Fix Packages →</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Switchmate – Free forever</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/i18n.js"></script>
+    <script src="../../assets/js/modules.js"></script>
+    
+    <script>
+        function copyCommand(btn) {
+            const code = btn.previousElementSibling.textContent;
+            navigator.clipboard.writeText(code);
+            btn.textContent = "✅ Copied!";
+            setTimeout(() => btn.textContent = "📋 Copy", 2000);
+        }
+        
+        function completeStep() {
+            localStorage.setItem('mod4-step1-complete', 'true');
+            window.location.href = 'step2.html';
+        }
+        
+        function showHelp() {
+            document.getElementById('panic-help').classList.toggle('hidden');
+        }
+        
+        function goToMod3() {
+            window.location.href = '../../modules/mod3/step1.html';
+        }
+        
+        function goToStep2() {
+            if (localStorage.getItem('mod4-step1-complete')) {
+                window.location.href = 'step2.html';
+            } else {
+                alert('Please complete the checkpoint first!');
+            }
+        }
+    </script>
+</body>
+</html>
