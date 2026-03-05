@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 Campfire – Entspannen am Feuer</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Courier New', monospace;
+        }
+        #info {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #ffb86b;
+            background: rgba(0,0,0,0.5);
+            padding: 8px 16px;
+            border-radius: 20px;
+            pointer-events: none;
+            z-index: 100;
+            border: 1px solid #ff7b24;
+            box-shadow: 0 0 20px rgba(255,123,36,0.3);
+            backdrop-filter: blur(5px);
+        }
+        #bazzi-message {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            max-width: 300px;
+            background: rgba(26,15,10,0.9);
+            color: #f5e6d3;
+            padding: 20px;
+            border-radius: 20px;
+            border-left: 6px solid #ff7b24;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid #ffb86b;
+            z-index: 200;
+            pointer-events: none;
+            animation: glow 4s infinite alternate;
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(255,123,36,0.3); }
+            to { box-shadow: 0 0 40px rgba(255,123,36,0.8); }
+        }
+        #back-link {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: #ffb86b;
+            text-decoration: none;
+            background: rgba(0,0,0,0.5);
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px solid #ff7b24;
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        #back-link:hover {
+            background: #ff7b24;
+            color: #1a0f0a;
+            box-shadow: 0 0 30px #ff7b24;
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html" id="back-link">← Zurück zu SwitchMate</a>
+    
+    <div id="info">🔥 Campfire • Bazzi passt auf dich auf</div>
+    
+    <div id="bazzi-message">
+        🤖 Hey, setz dich ans Feuer.<br>
+        Hier ist alles sicher. Kein Druck. Nur lernen und entspannen.<br>
+        <span style="color: #ff7b24; display: block; margin-top: 10px;">Klick ins Feuer – es tanzt für dich.</span>
+    </div>
+
+    <!-- Three.js Bibliotheken -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.128.0/build/three.module.js"
+            }
+        }
+    </script>
+
+    <!-- Unser Campfire-Code -->
+    <script type="module" src="assets/js/campfire.js"></script>
+</body>
+</html>
