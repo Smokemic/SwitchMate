@@ -1,27 +1,25 @@
-/* style.css – Switchmate Hauptdesign */
+/* style.css – Switchmate mit warmen Farben (Cappuccino, Beige, Orange) */
 
 :root {
-    /* Farben – klar und sicher */
-    --blue: #0066CC;
-    --blue-light: #4C9AFF;
-    --blue-dark: #004080;
-    --green: #00A86B;
-    --green-light: #32C48D;
-    --orange: #F5A623;
-    --orange-light: #FFB84D;
-    --red: #D32F2F;
-    --red-light: #EF5350;
+    /* Warme Farbpalette */
+    --warm-beige: #F5E6D3;      /* Cappuccino-Basis */
+    --warm-cream: #FAF0E6;      /* Helles Beige */
+    --warm-orange: #FF8C42;     /* Warmes Orange (wie Lagerfeuer) */
+    --warm-orange-light: #FFB26B;
+    --warm-orange-dark: #E67E22;
+    --warm-brown: #8B5A2B;       /* Für Akzente */
+    --warm-gray: #A98B7A;        /* Warmes Grau */
     
-    /* Graustufen */
-    --gray-100: #F5F7FA;
-    --gray-200: #E4E7EB;
-    --gray-300: #CBD2D9;
-    --gray-400: #9AA5B1;
-    --gray-500: #52667A;
-    --gray-600: #2D3A4A;
-    --gray-700: #1F2933;
+    /* Neutrale Farben (angepasst) */
+    --gray-100: #FFF9F2;         /* Ganz helles Beige */
+    --gray-200: #F5E6D3;         /* Cappuccino */
+    --gray-300: #E6D5C0;         /* Etwas dunkler */
+    --gray-400: #D4B99B;         /* Mittel */
+    --gray-500: #B39274;         /* Dunkleres Beige */
+    --gray-600: #8B6F50;         /* Braun-ton */
+    --gray-700: #5E4B3A;         /* Dunkelbraun */
     
-    /* Abstände */
+    /* Abstände (gleich) */
     --spacing-xs: 0.25rem;
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
@@ -40,7 +38,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
     color: var(--gray-700);
-    background: linear-gradient(135deg, var(--gray-100) 0%, white 100%);
+    background: linear-gradient(135deg, var(--gray-100) 0%, var(--warm-cream) 100%);
     min-height: 100vh;
 }
 
@@ -68,14 +66,14 @@ body {
 }
 
 .lang-btn:hover {
-    border-color: var(--blue);
+    border-color: var(--warm-orange);
     transform: translateY(-2px);
 }
 
 .lang-btn.active {
-    background: var(--blue);
+    background: var(--warm-orange);
     color: white;
-    border-color: var(--blue);
+    border-color: var(--warm-orange);
 }
 
 .lang-btn img {
@@ -86,7 +84,7 @@ body {
 
 /* Header */
 .main-header {
-    background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+    background: linear-gradient(135deg, var(--warm-brown), var(--warm-orange-dark));
     color: white;
     padding: var(--spacing-xl) 0;
     text-align: center;
@@ -128,14 +126,14 @@ body {
 
 .module-card:hover {
     transform: translateY(-4px);
-    border-color: var(--blue);
-    box-shadow: 0 8px 20px rgba(0,102,204,0.1);
+    border-color: var(--warm-orange);
+    box-shadow: 0 8px 20px rgba(255, 140, 66, 0.15);
 }
 
 .module-number {
     font-size: 3rem;
     font-weight: 800;
-    color: var(--blue);
+    color: var(--warm-orange);
     opacity: 0.2;
     position: absolute;
     top: var(--spacing-sm);
@@ -143,7 +141,7 @@ body {
 }
 
 .module-card h2 {
-    color: var(--blue-dark);
+    color: var(--warm-brown);
     margin-bottom: var(--spacing-sm);
     font-size: 1.5rem;
 }
@@ -152,16 +150,16 @@ body {
     display: inline-block;
     margin-top: var(--spacing-md);
     padding: var(--spacing-xs) var(--spacing-md);
-    background: var(--green);
+    background: var(--warm-orange);
     color: white;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 600;
 }
 
-/* Campfire-Eingang */
+/* Campfire-Eingang (bleibt warm) */
 .campfire-entrance {
-    background: linear-gradient(135deg, var(--orange), var(--orange-light));
+    background: linear-gradient(135deg, var(--warm-orange), var(--warm-orange-light));
     color: white;
     padding: var(--spacing-xl) var(--spacing-lg);
     text-align: center;
@@ -177,7 +175,7 @@ body {
     display: inline-block;
     padding: var(--spacing-md) var(--spacing-xl);
     background: white;
-    color: var(--orange);
+    color: var(--warm-orange);
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
@@ -193,7 +191,7 @@ body {
 
 /* Footer */
 footer {
-    background: var(--gray-600);
+    background: var(--warm-brown);
     color: white;
     text-align: center;
     padding: var(--spacing-lg);
