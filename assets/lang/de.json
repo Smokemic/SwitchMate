@@ -1,0 +1,41 @@
+{
+    "site": {
+        "title": "Switchmate",
+        "subtitle": "Der Bazzite-Guide"
+    },
+    "modules": {
+        "status": {
+            "start": "Hier starten",
+            "locked": "Vorheriges Modul abschließen",
+            "completed": "Abgeschlossen"
+        },
+        "mod0": {
+            "title": "Vor dem Sprung",
+            "description": "Hardware checken, USB-Stick vorbereiten, Backup"
+        },
+        "mod1": {
+            "title": "Der USB-Stick",
+            "description": "Tool runterladen, ISO brennen, bootfähigen Stick erstellen"
+        },
+        "mod2": {
+            "title": "Installation",
+            "description": "Von USB booten, Installer durchklicken, Benutzer anlegen"
+        },
+        "mod3": {
+            "title": "Die ersten Tage",
+            "description": "Updates, erste Apps, Daten holen, Gaming testen"
+        },
+        "mod4": {
+            "title": "Notfallkoffer",
+            "description": "Recovery, Boot-Probleme, zurück zu Windows"
+        }
+    },
+    "campfire": {
+        "title": "🔥 Pause machen?",
+        "description": "Besuch Campfire – dein Spielplatz zum Lernen und Ausprobieren",
+        "button": "Zu Campfire"
+    },
+    "footer": {
+        "copyright": "© 2024 Switchmate – Für immer kostenlos"
+    }
+}
