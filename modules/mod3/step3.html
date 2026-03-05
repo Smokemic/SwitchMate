@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3, Step 3 – Switchmate</title>
+    
+    <!-- PWA Meta -->
+    <meta name="theme-color" content="#0066CC">
+    <link rel="manifest" href="../../manifest.json">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/modules.css">
+</head>
+<body>
+    <!-- Sprachumschalter -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en">
+            <img src="../../assets/images/flags/en.svg" alt="English"> EN
+        </button>
+        <button class="lang-btn" data-lang="de">
+            <img src="../../assets/images/flags/de.svg" alt="Deutsch"> DE
+        </button>
+    </div>
+
+    <!-- Fortschrittsanzeige -->
+    <div class="progress-bar">
+        <div class="progress-container">
+            <div class="progress-step completed">Mod 0</div>
+            <div class="progress-step completed">Mod 1</div>
+            <div class="progress-step completed">Mod 2</div>
+            <div class="progress-step completed">3.1</div>
+            <div class="progress-step completed">3.2</div>
+            <div class="progress-step active">3.3</div>
+        </div>
+    </div>
+
+    <!-- Hauptbereich -->
+    <main class="module-step">
+        <!-- Linke Spalte: Anleitung -->
+        <div class="step-instruction">
+            <div class="module-badge">Module 3: Gaming</div>
+            <h1 class="step-title">Step 3: Performance & Settings</h1>
+            
+            <!-- Spur-A: Schnell -->
+            <div class="track track-fast">
+                <h2>⚡ Fast track</h2>
+                <p>For NVIDIA users, check drivers:</p>
+                
+                <div class="command-box">
+                    <code>nvidia-smi</code>
+                    <button class="copy-btn" onclick="copyCommand(this)">📋 Copy</button>
+                </div>
+                
+                <div class="info-box blue">
+                    <strong>Shows driver version and GPU usage</strong>
+                </div>
+                
+                <p>For gaming overlay (FPS, stats):</p>
+                <div class="command-box">
+                    <code>Shift + F12</code>
+                    <button class="copy-btn" onclick="copyCommand(this)">📋 Copy</button>
+                </div>
+                
+                <p>(MangoHud – comes pre-installed)</p>
+            </div>
+            
+            <!-- Spur-B: Verstehen -->
+            <details class="track-slow">
+                <summary>🐢 I want to understand</summary>
+                <div class="slow-content">
+                    <h3>Performance tips:</h3>
+                    <ul>
+                        <li><strong>Gamescope:</strong> Bazzite uses it for better gaming performance</li>
+                        <li><strong>MangoHud:</strong> Shows FPS, temps, usage (Shift+F12)</li>
+                        <li><strong>Goverlay:</strong> GUI to configure MangoHud</li>
+                    </ul>
+                    
+                    <h3>NVIDIA specific:</h3>
+                    <ul>
+                        <li>Drivers update automatically with system</li>
+                        <li>Check <code>nvidia-smi</code> for proper installation</li>
+                        <li>Some features (DLSS) work great</li>
+                    </ul>
+                    
+                    <h3>AMD/Intel:</h3>
+                    <ul>
+                        <li>Drivers are built-in (open source)</li>
+                        <li>Usually just works out of the box</li>
+                    </ul>
+                    
+                    <div class="info-box blue">
+                        <strong>Pro tip:</strong> For the best performance, keep your system updated with <code>ujust update</code>
+                    </div>
+                </div>
+            </details>
+            
+            <!-- Checkpoint -->
+            <div class="checkpoint">
+                <h3>✅ Checkpoint</h3>
+                <p>Can you see FPS overlay in games? Everything running smooth?</p>
+                <button class="checkpoint-btn" onclick="completeStep()">Yes, performance is great! →</button>
+            </div>
+            
+            <!-- Panik-Knopf -->
+            <div class="panic-box">
+                <button class="panic-btn" onclick="showHelp()">🚨 Performance issues? Get help</button>
+                <div id="panic-help" class="panic-content hidden">
+                    <h4>Common issues:</h4>
+                    <ul>
+                        <li><strong>Low FPS?</strong> Check if gaming mode is enabled</li>
+                        <li><strong>NVIDIA not showing?</strong> Run: <code>ujust install-nvidia</code></li>
+                        <li><strong>Overlay not working?</strong> Shift+F12 might be reserved – check Steam settings</li>
+                        <li><strong>Still stuck?</strong> <a href="../../campfire/">Ask Bazzi at Campfire</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Rechte Spalte: Bilder -->
+        <div class="step-visuals">
+            <h3>📸 How it should look</h3>
+            
+            <!-- nvidia-smi -->
+            <div class="image-card good">
+                <div style="background: #ddd; height: 200px; display: flex; align-items: center; justify-content: center;">
+                    📊 nvidia-smi output
+                </div>
+                <p class="image-caption">✅ NVIDIA drivers working</p>
+            </div>
+            
+            <!-- MangoHud -->
+            <div class="image-card good">
+                <div style="background: #ddd; height: 200px; display: flex; align-items: center; justify-content: center;">
+                    📈 MangoHud overlay (FPS, temps)
+                </div>
+                <p class="image-caption">✅ Performance overlay in game</p>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="step-nav">
+                <button class="nav-btn prev" onclick="goToStep2()">← Previous</button>
+                <button class="nav-btn next" onclick="goToModule4()">Module 4: Emergency →</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Switchmate – Free forever</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/i18n.js"></script>
+    <script src="../../assets/js/modules.js"></script>
+    
+    <script>
+        function copyCommand(btn) {
+            const code = btn.previousElementSibling.textContent;
+            navigator.clipboard.writeText(code);
+            btn.textContent = "✅ Copied!";
+            setTimeout(() => btn.textContent = "📋 Copy", 2000);
+        }
+        
+        function completeStep() {
+            localStorage.setItem('mod3-step3-complete', 'true');
+            localStorage.setItem('mod3-complete', 'true');
+            window.location.href = '../../modules/mod4/step1.html';
+        }
+        
+        function showHelp() {
+            document.getElementById('panic-help').classList.toggle('hidden');
+        }
+        
+        function goToStep2() {
+            window.location.href = 'step2.html';
+        }
+        
+        function goToModule4() {
+            if (localStorage.getItem('mod3-step3-complete')) {
+                window.location.href = '../../modules/mod4/step1.html';
+            } else {
+                alert('Please complete the checkpoint first!');
+            }
+        }
+    </script>
+</body>
+</html>
