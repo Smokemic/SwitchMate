@@ -1,4 +1,52 @@
-/* Sprachumschalter – nach oben und verkleinern */
+/* style.css – Mit sanften Abstufungen und kleinen Flaggen */
+
+:root {
+    /* Basis */
+    --bg-dark: #434342;           /* Hintergrund (dunkelstes Grau) */
+    --border-dark: #222126;        /* Umrandungen */
+    
+    /* Karten – sanfte Abstufungen */
+    --card-mocha: #5e4b3a;         /* Modul-Karten (Mokka) */
+    --card-mocha-light: #7b6b5a;    /* Hover / besondere Karten */
+    --card-soft: #9fa2a3;           /* Ganz helle Akzente (selten) */
+    
+    /* Akzente */
+    --accent-gold: #b59455;         /* Gold für Buttons/Hover */
+    --accent-muted: #8b7a4d;        /* Dezenteres Gold */
+    
+    /* Funktionsfarben */
+    --green-soft: #96fca5;          /* Erfolg */
+    --orange-warm: #ee7f2c;          /* Campfire */
+    
+    /* Text */
+    --text-light: #ffffff;
+    --text-muted: rgba(255,255,255,0.8);
+    --text-soft: rgba(255,255,255,0.6);
+    
+    /* Abstände */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+}
+
+/* Basis */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-light);
+    background: var(--bg-dark);
+    min-height: 100vh;
+}
+
+/* Sprachumschalter – KLEIN und OBEN RECHTS */
 .language-switcher {
     position: fixed;
     top: 20px;
@@ -32,10 +80,491 @@
 .lang-btn:hover {
     border-color: var(--accent-gold);
     background: var(--card-mocha);
+    transform: translateY(-2px);
 }
 
 .lang-btn.active {
     background: var(--accent-gold);
     color: var(--bg-dark);
     border-color: var(--accent-gold);
+}
+
+/* Header */
+.main-header {
+    background: linear-gradient(135deg, var(--card-mocha), var(--border-dark));
+    color: var(--text-light);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    border-bottom: 3px solid var(--accent-muted);
+}
+
+.site-title {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-light);
+}
+
+.site-subtitle {
+    font-size: 1.5rem;
+    opacity: 0.9;
+    color: var(--text-muted);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, var(--card-mocha), var(--card-mocha-light));
+    color: var(--text-light);
+    padding: var(--spacing-xl) var(--spacing-lg);
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-muted);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: var(--accent-gold);
+    color: var(--bg-dark);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: all 0.2s;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    background: var(--card-soft);
+    color: var(--bg-dark);
+}
+
+/* Modul-Grid */
+.module-grid-section {
+    padding: var(--spacing-xl) var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-xl);
+}
+
+.module-grid {
+    max-width: 1200px;
+    margin: var(--spacing-xl) auto;
+    padding: 0 var(--spacing-lg);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+/* Normale Modul-Karten (Mokka) */
+.module-card {
+    background: var(--card-mocha);
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    text-decoration: none;
+    color: inherit;
+    border: 2px solid var(--border-dark);
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.module-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-muted);
+    background: var(--card-mocha-light);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.module-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--accent-muted);
+    opacity: 0.2;
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-md);
+}
+
+.module-card h2 {
+    color: var(--text-light);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.5rem;
+}
+
+.module-card p {
+    color: var(--text-muted);
+}
+
+/* Status-Badge */
+.module-status {
+    display: inline-block;
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--accent-muted);
+    color: var(--text-light);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.module-status.completed {
+    background: var(--green-soft);
+    color: var(--bg-dark);
+}
+
+/* Campfire-Eingang (besondere Karte) */
+.campfire-entrance {
+    background: var(--card-mocha-light);
+    color: var(--text-light);
+    padding: var(--spacing-xl) var(--spacing-lg);
+    text-align: center;
+    margin: var(--spacing-xl) auto;
+    max-width: 1200px;
+    border-radius: 20px;
+    border: 2px solid var(--accent-muted);
+}
+
+.campfire-entrance h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-light);
+}
+
+.campfire-entrance p {
+    color: var(--text-muted);
+}
+
+.campfire-features {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+    flex-wrap: wrap;
+}
+
+.feature {
+    background: var(--card-mocha);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 30px;
+    border: 1px solid var(--accent-muted);
+    color: var(--text-light);
+}
+
+.campfire-button {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: var(--accent-gold);
+    color: var(--bg-dark);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+}
+
+.campfire-button:hover {
+    transform: scale(1.05);
+    background: var(--card-mocha-light);
+    color: var(--text-light);
+    border-color: var(--accent-gold);
+}
+
+/* Features Section */
+.features {
+    background: var(--card-mocha);
+    padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: var(--card-mocha-light);
+    border: 2px solid var(--border-dark);
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.feature-card h3 {
+    color: var(--accent-gold);
+    margin-bottom: var(--spacing-sm);
+}
+
+.feature-card p {
+    color: var(--text-muted);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-light);
+}
+
+/* Footer */
+footer {
+    background: var(--border-dark);
+    color: var(--text-muted);
+    text-align: center;
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+    border-top: 2px solid var(--accent-muted);
+}
+
+footer a {
+    color: var(--accent-gold);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--card-soft);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .site-title {
+        font-size: 2.5rem;
+    }
+    
+    .module-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .language-switcher {
+        position: static;
+        justify-content: center;
+        padding: var(--spacing-md);
+        top: auto;
+        right: auto;
+    }
+    
+    .campfire-features {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Fortschrittsbalken (für Modul-Seiten) */
+.progress-bar {
+    background: var(--card-mocha);
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--border-dark);
+}
+
+.progress-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--spacing-md);
+}
+
+.progress-step {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--card-mocha-light);
+    border: 3px solid var(--border-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+.progress-step.completed {
+    background: var(--green-soft);
+    border-color: var(--green-soft);
+    color: var(--bg-dark);
+}
+
+.progress-step.active {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+}
+
+/* Modul-Seiten Layout */
+.module-step {
+    max-width: 1400px;
+    margin: var(--spacing-xl) auto;
+    padding: 0 var(--spacing-lg);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+}
+
+.step-instruction {
+    background: var(--card-mocha);
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+    border: 2px solid var(--border-dark);
+}
+
+.step-visuals {
+    background: var(--card-mocha-light);
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+    border: 2px solid var(--border-dark);
+}
+
+.module-badge {
+    display: inline-block;
+    background: var(--accent-gold);
+    color: var(--bg-dark);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+.step-title {
+    font-size: 2.5rem;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Command Box */
+.command-box {
+    background: var(--border-dark);
+    color: var(--text-light);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: var(--spacing-md) 0;
+}
+
+.command-box code {
+    font-size: 1.2rem;
+    font-family: 'Courier New', monospace;
+    color: var(--text-light);
+}
+
+.copy-btn {
+    background: var(--accent-gold);
+    color: var(--bg-dark);
+    border: none;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.copy-btn:hover {
+    background: var(--accent-muted);
+    color: var(--text-light);
+}
+
+/* Image Cards */
+.image-card {
+    margin-bottom: var(--spacing-lg);
+    border: 2px solid var(--border-dark);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.image-card.good {
+    border-color: var(--green-soft);
+}
+
+.image-card.error {
+    border-color: #ff6b6b;
+}
+
+.image-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.image-caption {
+    padding: var(--spacing-sm);
+    text-align: center;
+    color: var(--text-muted);
+    background: var(--card-mocha);
+}
+
+/* Navigation */
+.step-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--spacing-lg);
+}
+
+.nav-btn {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: 2px solid var(--accent-gold);
+    background: transparent;
+    color: var(--text-light);
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.nav-btn:hover:not(:disabled) {
+    background: var(--accent-gold);
+    color: var(--bg-dark);
+}
+
+.nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    border-color: var(--border-dark);
+}
+
+/* Panic Button */
+.panic-btn {
+    background: #ff6b6b;
+    color: var(--text-light);
+    border: none;
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+}
+
+.panic-content {
+    background: var(--card-mocha-light);
+    border: 2px solid #ff6b6b;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+    color: var(--text-light);
+}
+
+.hidden {
+    display: none;
 }
