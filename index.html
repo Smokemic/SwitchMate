@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switchmate – The Bazzite Guide</title>
+    
+    <!-- PWA Meta -->
+    <meta name="theme-color" content="#0066CC">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/images/icons/icon-192.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Switchmate – Der idiotensichere Umstieg von Windows zu Bazzite. Schritt für Schritt, Bild für Bild, ohne Fachchinesisch.">
+    <meta name="keywords" content="Bazzite, Linux, Windows, Umstieg, Guide, Installation, Gaming">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Switchmate – The Bazzite Guide">
+    <meta property="og:description" content="Dein persönlicher Begleiter für den Umstieg zu Bazzite.">
+    <meta property="og:type" content="website">
+</head>
+<body>
+    <!-- Sprachumschalter -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="en">
+            <img src="assets/images/flags/en.svg" alt="English" onerror="this.style.display='none'"> EN
+        </button>
+        <button class="lang-btn" data-lang="de">
+            <img src="assets/images/flags/de.svg" alt="Deutsch" onerror="this.style.display='none'"> DE
+        </button>
+    </div>
+
+    <!-- Header mit Campfire-Link -->
+    <header class="main-header">
+        <div class="header-content">
+            <h1 class="site-title" data-i18n="site.title">Switchmate</h1>
+            <p class="site-subtitle" data-i18n="site.subtitle">The Bazzite Guide</p>
+            <a href="campfire/" class="campfire-mini-link">🔥 Visit Campfire</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 data-i18n="hero.title">From Windows to Bazzite – Schritt für Schritt</h2>
+            <p data-i18n="hero.subtitle">Keine Angst, kein Fachchinesisch, kein "ist doch einfach". Nur klare Anweisungen, Bilder und ein Freund an deiner Seite.</p>
+            <a href="#modules" class="cta-button" data-i18n="hero.cta">Los geht's</a>
+        </div>
+    </section>
+
+    <!-- Modul-Übersicht -->
+    <section id="modules" class="module-grid-section">
+        <h2 class="section-title" data-i18n="modules.title">Dein Weg zu Bazzite</h2>
+        
+        <div class="module-grid">
+            <!-- Modul 0 -->
+            <a href="modules/mod0/step1.html" class="module-card" data-module="0">
+                <div class="module-number">0</div>
+                <h2 data-i18n="modules.mod0.title">Before the Leap</h2>
+                <p data-i18n="modules.mod0.description">Hardware checken, USB-Stick vorbereiten, Backup</p>
+                <span class="module-status" data-i18n="modules.status.start">Hier starten</span>
+                <div class="module-progress" id="progress-mod0"></div>
+            </a>
+
+            <!-- Modul 1 -->
+            <a href="modules/mod1/step1.html" class="module-card" data-module="1">
+                <div class="module-number">1</div>
+                <h2 data-i18n="modules.mod1.title">The USB Stick</h2>
+                <p data-i18n="modules.mod1.description">Tool runterladen, ISO brennen, bootfähigen Stick erstellen</p>
+                <span class="module-status" data-i18n="modules.status.locked">Vorheriges Modul nötig</span>
+                <div class="module-progress" id="progress-mod1"></div>
+            </a>
+
+            <!-- Modul 2 -->
+            <a href="modules/mod2/step1.html" class="module-card" data-module="2">
+                <div class="module-number">2</div>
+                <h2 data-i18n="modules.mod2.title">Installation</h2>
+                <p data-i18n="modules.mod2.description">Von USB booten, Installer durchklicken, Benutzer anlegen</p>
+                <span class="module-status" data-i18n="modules.status.locked">Vorheriges Modul nötig</span>
+                <div class="module-progress" id="progress-mod2"></div>
+            </a>
+
+            <!-- Modul 3 -->
+            <a href="modules/mod3/step1.html" class="module-card" data-module="3">
+                <div class="module-number">3</div>
+                <h2 data-i18n="modules.mod3.title">First Days</h2>
+                <p data-i18n="modules.mod3.description">Updates, erste Apps, Daten holen, Gaming testen</p>
+                <span class="module-status" data-i18n="modules.status.locked">Vorheriges Modul nötig</span>
+                <div class="module-progress" id="progress-mod3"></div>
+            </a>
+
+            <!-- Modul 4 -->
+            <a href="modules/mod4/step1.html" class="module-card" data-module="4">
+                <div class="module-number">4</div>
+                <h2 data-i18n="modules.mod4.title">Emergency Kit</h2>
+                <p data-i18n="modules.mod4.description">Wenn was schiefgeht: Recovery, Boot-Probleme, zurück zu Windows</p>
+                <span class="module-status" data-i18n="modules.status.locked">Für später</span>
+                <div class="module-progress" id="progress-mod4"></div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Campfire Section -->
+    <section class="campfire-entrance">
+        <div class="campfire-content">
+            <h2 data-i18n="campfire.title">🔥 Pause machen? Oder einfach lernen?</h2>
+            <p data-i18n="campfire.description">Campfire ist dein Spielplatz. Hier kannst du am 3D-Feuer entspannen, mit Bazzi quatschen oder im Terminal gefahrlos rumprobieren.</p>
+            <div class="campfire-features">
+                <div class="feature">🎮 Terminal-Spielplatz</div>
+                <div class="feature">🔥 3D-Campfire</div>
+                <div class="feature">🤖 Bazzi, dein Helfer</div>
+            </div>
+            <a href="campfire/" class="campfire-button" data-i18n="campfire.button">🔥 Campfire besuchen</a>
+        </div>
+    </section>
+
+    <!-- Features / Philosophie -->
+    <section class="features">
+        <h2 class="section-title" data-i18n="features.title">So funktioniert Switchmate</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📸</div>
+                <h3 data-i18n="features.steps.title">Jeder Schritt ein Bild</h3>
+                <p data-i18n="features.steps.text">Du siehst, wie es aussehen SOLL – und wie es aussehen KANN, wenn was anders ist.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3 data-i18n="features.copy.title">Nie tippen, nur kopieren</h3>
+                <p data-i18n="features.copy.text">Jeder Befehl ist ein Klick – kopieren, einfügen, fertig.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛤️</div>
+                <h3 data-i18n="features.tracks.title">Zwei Spuren</h3>
+                <p data-i18n="features.tracks.text">"Schnell ans Ziel" oder "Ich will verstehen" – du entscheidest.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3 data-i18n="features.checkpoints.title">Checkpoints</h3>
+                <p data-i18n="features.checkpoints.text">Nach jedem Schritt: Hast du's geschafft? Dann geht's weiter.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p data-i18n="footer.copyright">© 2024 Switchmate – Für immer kostenlos</p>
+            <p><a href="https://github.com/Smokemic/SwitchMate" target="_blank">GitHub</a> | <a href="campfire/">Campfire</a></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/pwa.js"></script>
+    
+    <script>
+        // Fortschritt aus localStorage laden
+        document.addEventListener('DOMContentLoaded', function() {
+            const modules = ['mod0', 'mod1', 'mod2', 'mod3', 'mod4'];
+            
+            modules.forEach(module => {
+                const progress = [];
+                let step = 1;
+                while (localStorage.getItem(`${module}-step${step}-complete`) === 'true') {
+                    progress.push(step);
+                    step++;
+                }
+                
+                const progressBar = document.getElementById(`progress-${module}`);
+                if (progressBar && progress.length > 0) {
+                    const totalSteps = module === 'mod0' ? 4 : 3;
+                    const percent = (progress.length / totalSteps) * 100;
+                    progressBar.style.width = percent + '%';
+                    progressBar.style.display = 'block';
+                    
+                    // Modul-Status ändern
+                    const card = document.querySelector(`.module-card[data-module="${module.replace('mod', '')}"]`);
+                    const statusSpan = card.querySelector('.module-status');
+                    if (progress.length === totalSteps) {
+                        statusSpan.textContent = '✅ Abgeschlossen';
+                        statusSpan.style.background = 'var(--green)';
+                    } else if (progress.length > 0) {
+                        statusSpan.textContent = `🔄 ${progress.length}/${totalSteps} geschafft`;
+                        statusSpan.style.background = 'var(--blue)';
+                    }
+                }
+            });
+        });
+    </script>
+    
+    <style>
+        /* Zusätzliche Styles für die Hauptseite */
+        .hero {
+            background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+            color: white;
+            padding: var(--spacing-xl) var(--spacing-lg);
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: var(--spacing-md) var(--spacing-xl);
+            background: white;
+            color: var(--blue);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.2s;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--blue-dark);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .module-grid-section {
+            padding: var(--spacing-xl) var(--spacing-lg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .campfire-mini-link {
+            display: inline-block;
+            margin-top: var(--spacing-md);
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .campfire-features {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
+            flex-wrap: wrap;
+        }
+        
+        .feature {
+            background: rgba(255,255,255,0.1);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .features {
+            padding: var(--spacing-xl) var(--spacing-lg);
+            background: var(--gray-100);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: var(--spacing-lg);
+            background: white;
+            border-radius: 12px;
+            border: 2px solid var(--gray-200);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .module-progress {
+            height: 4px;
+            background: var(--green);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            display: none;
+        }
+        
+        .module-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .campfire-features {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+        }
+    </style>
+</body>
+</html>
