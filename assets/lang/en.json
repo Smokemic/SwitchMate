@@ -3,12 +3,13 @@
         "title": "Switchmate",
         "subtitle": "The Bazzite Guide"
     },
+    "hero": {
+        "title": "From Windows to Bazzite – Step by Step",
+        "subtitle": "No fear, no jargon, no \"it's easy\". Just clear instructions, pictures, and a friend by your side.",
+        "cta": "Let's go"
+    },
     "modules": {
-        "status": {
-            "start": "Start here",
-            "locked": "Complete previous module",
-            "completed": "Completed"
-        },
+        "title": "Your path to Bazzite",
         "mod0": {
             "title": "Before the Leap",
             "description": "Check hardware, prepare USB stick, backup"
@@ -31,9 +32,9 @@
         }
     },
     "campfire": {
-        "title": "🔥 Need a break?",
-        "description": "Visit Campfire – your playground to learn and experiment",
-        "button": "Visit Campfire"
+        "title": "🔥 Need a break? Or just want to learn?",
+        "description": "Campfire is your playground. Relax by the 3D fire, chat with Bazzi, or experiment safely in the terminal.",
+        "button": "🔥 Visit Campfire"
     },
     "footer": {
         "copyright": "© 2024 Switchmate – Free forever"
