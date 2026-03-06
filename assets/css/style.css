@@ -670,3 +670,22 @@ footer a:hover {
 .module-card::after {
     display: none !important;
 }
+/* GOLDENE AKZENTE – dezente Umrandungen */
+.site-title {
+    text-shadow: 0 0 10px var(--accent-gold),
+                 0 0 20px rgba(181, 148, 85, 0.3);
+    -webkit-text-stroke: 1px var(--accent-gold);
+}
+
+.main-header {
+    border-bottom: 3px solid var(--accent-gold) !important;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: var(--accent-gold);
+    margin: var(--spacing-sm) auto 0;
+}
