@@ -1,10 +1,28 @@
-/* modules.css – Spezielle Styles für die Modul-Seiten */
+/* modules.css – Spezielle Styles für die Modul-Seiten (angepasst an warme Farben) */
+
+:root {
+    /* Stelle sicher, dass die Variablen bekannt sind, falls modules.css allein steht */
+    --card-mocha: #5e4b3a;
+    --card-mocha-light: #7b6b5a;
+    --border-dark: #222126;
+    --bg-dark: #434342;
+    --accent-gold: #b59455;
+    --accent-muted: #8b7a4d;
+    --green-soft: #96fca5;
+    --text-light: #ffffff;
+    --text-muted: rgba(255,255,255,0.8);
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+}
 
 /* Progress Bar */
 .progress-bar {
-    background: var(--gray-200);
+    background: var(--card-mocha);
     padding: var(--spacing-md) 0;
-    border-bottom: 1px solid var(--gray-300);
+    border-bottom: 1px solid var(--border-dark);
 }
 
 .progress-container {
@@ -20,26 +38,24 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: white;
-    border: 3px solid var(--gray-300);
+    background: var(--card-mocha-light);
+    border: 3px solid var(--border-dark);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    color: var(--gray-500);
+    color: var(--text-light);
 }
 
 .progress-step.completed {
-    background: var(--green);
-    border-color: var(--green);
-    color: white;
+    background: var(--green-soft);
+    border-color: var(--green-soft);
+    color: var(--bg-dark);
 }
 
 .progress-step.active {
-    border-color: var(--blue);
-    color: var(--blue);
-    font-weight: 800;
-    transform: scale(1.1);
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
 }
 
 /* Modul-Step Layout */
@@ -54,16 +70,16 @@
 
 /* Linke Spalte – Anleitung */
 .step-instruction {
-    background: white;
+    background: var(--card-mocha);
     padding: var(--spacing-lg);
     border-radius: 12px;
-    border: 2px solid var(--gray-200);
+    border: 2px solid var(--border-dark);
 }
 
 .module-badge {
     display: inline-block;
-    background: var(--blue);
-    color: white;
+    background: var(--accent-gold);
+    color: var(--bg-dark);
     padding: var(--spacing-xs) var(--spacing-md);
     border-radius: 20px;
     font-size: 0.9rem;
@@ -73,7 +89,7 @@
 
 .step-title {
     font-size: 2.5rem;
-    color: var(--blue-dark);
+    color: var(--text-light);
     margin-bottom: var(--spacing-lg);
 }
 
@@ -82,16 +98,16 @@
     margin-bottom: var(--spacing-lg);
     padding: var(--spacing-lg);
     border-radius: 8px;
-    background: var(--gray-100);
+    background: var(--card-mocha-light);
 }
 
 .track-fast {
-    border-left: 5px solid var(--green);
+    border-left: 5px solid var(--green-soft);
 }
 
 .command-box {
-    background: var(--gray-700);
-    color: white;
+    background: var(--border-dark);
+    color: var(--text-light);
     padding: var(--spacing-md);
     border-radius: 8px;
     display: flex;
@@ -103,20 +119,23 @@
 .command-box code {
     font-size: 1.2rem;
     font-family: 'Courier New', monospace;
+    color: var(--text-light);
 }
 
 .copy-btn {
-    background: var(--blue);
-    color: white;
+    background: var(--accent-gold);
+    color: var(--bg-dark);
     border: none;
     padding: var(--spacing-xs) var(--spacing-md);
     border-radius: 4px;
     cursor: pointer;
     font-size: 0.9rem;
+    font-weight: 600;
 }
 
 .copy-btn:hover {
-    background: var(--blue-dark);
+    background: var(--accent-muted);
+    color: var(--text-light);
 }
 
 /* Info Boxes */
@@ -127,8 +146,9 @@
 }
 
 .info-box.blue {
-    background: #E3F2FD;
-    border-left: 5px solid var(--blue);
+    background: var(--border-dark);
+    color: var(--text-light);
+    border-left: 5px solid var(--accent-gold);
 }
 
 /* Slow Track */
@@ -137,7 +157,8 @@
 }
 
 .track-slow summary {
-    background: var(--gray-200);
+    background: var(--border-dark);
+    color: var(--text-light);
     padding: var(--spacing-md);
     border-radius: 8px;
     cursor: pointer;
@@ -146,29 +167,38 @@
 
 .slow-content {
     padding: var(--spacing-lg);
-    background: var(--gray-100);
+    background: var(--bg-dark);
+    color: var(--text-muted);
     border-radius: 0 0 8px 8px;
 }
 
 /* Checkpoint */
 .checkpoint {
-    background: var(--green-light);
+    background: var(--green-soft);
     padding: var(--spacing-lg);
     border-radius: 8px;
     margin: var(--spacing-lg) 0;
-    color: white;
+    color: var(--bg-dark);
+}
+
+.checkpoint p {
+    color: var(--bg-dark);
 }
 
 .checkpoint-btn {
-    background: white;
-    color: var(--green);
+    background: var(--bg-dark);
+    color: var(--text-light);
     border: none;
     padding: var(--spacing-md) var(--spacing-lg);
     border-radius: 30px;
     font-weight: 600;
-    font-size: 1.1rem;
     cursor: pointer;
     margin-top: var(--spacing-md);
+}
+
+.checkpoint-btn:hover {
+    background: var(--card-mocha);
+    color: var(--text-light);
 }
 
 /* Panic Box */
@@ -177,8 +207,8 @@
 }
 
 .panic-btn {
-    background: var(--red);
-    color: white;
+    background: #ff6b6b;
+    color: var(--text-light);
     border: none;
     padding: var(--spacing-md);
     border-radius: 8px;
@@ -188,11 +218,12 @@
 }
 
 .panic-content {
-    background: #FFEBEE;
-    border: 2px solid var(--red);
+    background: var(--card-mocha-light);
+    border: 2px solid #ff6b6b;
     border-radius: 8px;
     padding: var(--spacing-lg);
     margin-top: var(--spacing-md);
+    color: var(--text-light);
 }
 
 .hidden {
@@ -201,25 +232,25 @@
 
 /* Rechte Spalte – Bilder */
 .step-visuals {
-    background: white;
+    background: var(--card-mocha-light);
     padding: var(--spacing-lg);
     border-radius: 12px;
-    border: 2px solid var(--gray-200);
+    border: 2px solid var(--border-dark);
 }
 
 .image-card {
     margin-bottom: var(--spacing-lg);
-    border: 2px solid var(--gray-200);
+    border: 2px solid var(--border-dark);
     border-radius: 8px;
     overflow: hidden;
 }
 
 .image-card.good {
-    border-color: var(--green);
+    border-color: var(--green-soft);
 }
 
 .image-card.error {
-    border-color: var(--red);
+    border-color: #ff6b6b;
 }
 
 .image-card img {
@@ -243,15 +274,17 @@
 .image-caption {
     padding: var(--spacing-sm);
     text-align: center;
-    font-size: 0.9rem;
+    color: var(--text-muted);
+    background: var(--card-mocha);
 }
 
 .zoom-btn {
     width: 100%;
     padding: var(--spacing-sm);
-    background: var(--gray-200);
+    background: var(--border-dark);
     border: none;
     cursor: pointer;
+    color: var(--text-light);
 }
 
 /* Navigation */
@@ -263,22 +296,24 @@
 
 .nav-btn {
     padding: var(--spacing-md) var(--spacing-lg);
-    border: 2px solid var(--blue);
-    background: white;
-    color: var(--blue);
+    border: 2px solid var(--accent-gold);
+    background: transparent;
+    color: var(--text-light);
     border-radius: 30px;
     font-weight: 600;
     cursor: pointer;
+    transition: all 0.2s;
 }
 
 .nav-btn:hover:not(:disabled) {
-    background: var(--blue);
-    color: white;
+    background: var(--accent-gold);
+    color: var(--bg-dark);
 }
 
 .nav-btn:disabled {
-    opacity: 0.5;
+    opacity: 0.3;
     cursor: not-allowed;
+    border-color: var(--border-dark);
 }
 
 /* Responsive */
