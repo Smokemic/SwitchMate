@@ -1,4 +1,4 @@
-/* style.css – MINIMALISTISCHER NEUSTART */
+/* style.css – Minimal & effektiv */
 
 :root {
     --bg-dark: #434342;
@@ -12,6 +12,109 @@ body {
     color: var(--text-light);
     font-family: sans-serif;
     margin: 0;
+}
+
+/* Header */
+.main-header {
+    background: var(--card-mocha);
+    padding: 80px 20px;
+    text-align: center;
+    border-bottom: 3px solid var(--accent-gold);
+}
+
+.site-title {
+    font-size: 4rem;
+    -webkit-text-stroke: 1px var(--accent-gold);
+    margin: 0;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-block;
+    background: var(--accent-gold);
+    color: #000;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+/* Section Title – MIT ABSTAND */
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin: 60px 0 40px 0;  /* Mehr Abstand oben und unten */
+}
+
+/* Modul-Grid – EINFACH & ZENTRIERT */
+.module-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 60px 20px;
+}
+
+.module-card {
+    background: var(--card-mocha);
+    border: 2px solid #222;
+    border-radius: 12px;
+    padding: 30px 20px;
+    width: 300px;
+    text-decoration: none;
+    color: var(--text-light);
+}
+
+.module-card h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+}
+
+.module-card p {
+    margin: 0 0 15px 0;
+    opacity: 0.8;
+}
+
+/* Badges entfernt */
+.module-status {
+    display: none;
+}
+
+/* Modul-Nummern entfernt */
+.module-number {
+    display: none;
+}
+
+/* Campfire */
+.campfire-entrance {
+    background: #7b6b5a;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 60px 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* Features ausgeblendet */
+.features {
+    display: none;
+}
+
+/* Footer */
+footer {
+    background: #222;
+    padding: 40px;
+    text-align: center;
+    border-top: 2px solid var(--accent-gold);
 }
 
 /* Sprachumschalter */
@@ -43,182 +146,21 @@ body {
     height: 15px;
 }
 
-/* Header */
-.main-header {
-    background: var(--card-mocha);
-    padding: 80px 20px;
-    text-align: center;
-    border-bottom: 3px solid var(--accent-gold);
-}
-
-.site-title {
-    font-size: 4rem;
-    -webkit-text-stroke: 1px var(--accent-gold);
-    margin: 0;
-}
-
-/* Hero */
-.hero {
-    text-align: center;
-    padding: 60px 20px;
-}
-
-/* CTA BUTTON – IMMER SICHTBAR */
-.cta-button {
-    display: inline-block !important;
-    background: var(--accent-gold) !important;
-    color: #000 !important;
-    padding: 15px 40px !important;
-    border-radius: 30px !important;
-    text-decoration: none !important;
-    font-weight: bold !important;
-    border: 2px solid var(--accent-gold) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    margin: 20px 0 !important;
-}
-
-/* MODUL-GRID – ZENTRIERT */
-.module-grid-section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-.module-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    justify-content: center;
-}
-
-/* Modul-Karten – OHNE Nummern */
-.module-card {
-    background: var(--card-mocha);
-    border: 2px solid #222;
-    border-radius: 12px;
-    padding: 30px 20px;
-    text-decoration: none;
-    color: var(--text-light);
-    display: block;
-}
-
-.module-card h2 {
-    margin: 0 0 10px 0;
-    font-size: 1.5rem;
-}
-
-.module-card p {
-    margin: 0;
-    opacity: 0.8;
-}
-
-/* Letztes Modul zentrieren */
-.module-card:last-child {
-    grid-column: 2 / 3;
-}
-
-/* Campfire */
-.campfire-entrance {
-    background: #7b6b5a;
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 60px 20px;
-    border-radius: 20px;
-    text-align: center;
-}
-
-.campfire-button {
-    background: var(--accent-gold);
-    color: #000;
-    padding: 15px 40px;
-    border-radius: 30px;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-/* Footer */
-footer {
-    background: #222;
-    padding: 40px;
-    text-align: center;
-    border-top: 2px solid var(--accent-gold);
-}
-
-footer a {
-    color: var(--accent-gold);
-    text-decoration: none;
-}
-
 /* Responsive */
 @media (max-width: 900px) {
-    .module-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .module-card:last-child {
-        grid-column: auto;
+    .module-card {
+        width: 280px;
     }
 }
 
 @media (max-width: 600px) {
-    .module-grid {
-        grid-template-columns: 1fr;
+    .module-card {
+        width: 100%;
     }
     .site-title {
         font-size: 2.5rem;
     }
-}
-
-/* Features ausgeblendet */
-.features {
-    display: none;
-}
-
-/* Modul-Nummern WEG */
-.module-number {
-    display: none !important;
-}
-/* ====================
-   BOXEN-ZENTRIERER MIT GEWALT
-   ==================== */
-
-.module-grid-section {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
-}
-
-.module-grid {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 30px !important;
-    max-width: 1200px !important;
-    margin: 0 auto !important;
-}
-
-.module-card {
-    width: 300px !important;  /* Feste Breite */
-    margin: 0 !important;
-    flex: 0 0 auto !important;
-}
-
-/* Damit die 5. Box in der Mitte landet */
-.module-card:last-child {
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-@media (max-width: 900px) {
-    .module-card {
-        width: 280px !important;
-    }
-}
-
-@media (max-width: 600px) {
-    .module-card {
-        width: 100% !important;
+    .section-title {
+        margin: 40px 0 30px 0;
     }
 }
