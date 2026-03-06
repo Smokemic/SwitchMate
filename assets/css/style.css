@@ -179,3 +179,46 @@ footer a {
 .module-number {
     display: none !important;
 }
+/* ====================
+   BOXEN-ZENTRIERER MIT GEWALT
+   ==================== */
+
+.module-grid-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.module-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+}
+
+.module-card {
+    width: 300px !important;  /* Feste Breite */
+    margin: 0 !important;
+    flex: 0 0 auto !important;
+}
+
+/* Damit die 5. Box in der Mitte landet */
+.module-card:last-child {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+@media (max-width: 900px) {
+    .module-card {
+        width: 280px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .module-card {
+        width: 100% !important;
+    }
+}
