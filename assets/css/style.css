@@ -699,3 +699,80 @@ footer a:hover {
 .features {
     display: none !important;  /* Versteckt die unteren Kästen komplett */
 }
+/* ====================
+   FINALE FIXES – BABA
+   ==================== */
+
+/* 1. GOLDENE SCHRÄGE IM HEADER */
+.main-header {
+    position: relative;
+    border-bottom: none !important;
+}
+
+.main-header::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+        135deg,
+        transparent 0%,
+        transparent 38%,
+        var(--accent-gold) 38%,
+        var(--accent-gold) 62%,
+        transparent 62%,
+        transparent 100%
+    );
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* 2. BOXEN ZENTRIERT – 3-2 LAYOUT */
+.module-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Letzte Reihe zentrieren (bei 5 Modulen) */
+.module-card:last-child {
+    grid-column: 2 / 3;
+}
+
+/* Responsive: Bei kleinen Bildschirmen nur 1 Spalte */
+@media (max-width: 900px) {
+    .module-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .module-card:last-child {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .module-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 3. GOLD-DREIECK LINKS – dezenter gemacht (aber bleibt) */
+.module-number {
+    opacity: 0.1 !important;  /* Noch dezenter */
+}
+
+/* 4. SICHTBARKEIT ALLER BOXEN */
+.module-card {
+    display: flex !important;
+    flex-direction: column;
+}
+
+/* 5. TITEL NUR UMRANDUNG (kein Shimmer) */
+.site-title {
+    -webkit-text-stroke: 1px var(--accent-gold);
+    text-shadow: none;
+}
