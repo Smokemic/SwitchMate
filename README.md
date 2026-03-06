@@ -142,7 +142,8 @@ Campfire ist die Belohnung nach jedem geschafften Modul. Und der Ort, wo Neugier
 
 ## 🚀 Loslegen / Get Started
 
-**👉 [Zum Switchmate Guide / Go to the Guide](https://smokemic.github.io/SwitchMate/)**
+** 👉 [Switchmate Guide / Go to the Guide](https://smokemic.github.io/SwitchMate/) **
+
 ---
 
 *Switchmate – Dein Weg zu Bazzite. Schritt für Schritt, Hand in Hand.* 🔥
