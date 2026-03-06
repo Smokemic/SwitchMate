@@ -670,11 +670,11 @@ footer a:hover {
 .module-card::after {
     display: none !important;
 }
-/* GOLDENE AKZENTE – dezente Umrandungen */
+
+/* GOLDENE AKZENTE – nur Umrandungen, kein Shimmer */
 .site-title {
-    text-shadow: 0 0 10px var(--accent-gold),
-                 0 0 20px rgba(181, 148, 85, 0.3);
-    -webkit-text-stroke: 1px var(--accent-gold);
+    -webkit-text-stroke: 1px var(--accent-gold);  /* Nur Umrandung */
+    text-shadow: none;  /* Kein Shimmer mehr */
 }
 
 .main-header {
@@ -688,4 +688,14 @@ footer a:hover {
     height: 2px;
     background: var(--accent-gold);
     margin: var(--spacing-sm) auto 0;
+}
+
+/* Goldene Linie am Übergang Hero/Module */
+.hero {
+    border-bottom: 3px solid var(--accent-gold) !important;
+}
+
+/* Falls die Kästen unten (Features) weg sollen: */
+.features {
+    display: none !important;  /* Versteckt die unteren Kästen komplett */
 }
