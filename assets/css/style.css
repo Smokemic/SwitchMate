@@ -131,23 +131,39 @@ body {
     color: var(--text-muted);
 }
 
+/* Hero CTA Button – IMMER sichtbar */
 .cta-button {
     display: inline-block;
     padding: var(--spacing-md) var(--spacing-xl);
-    background: var(--accent-gold);
-    color: var(--bg-dark);
+    background: var(--accent-gold);  /* Gold-Hintergrund */
+    color: var(--bg-dark);           /* Dunkler Text */
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
     font-size: 1.2rem;
-    transition: all 0.2s;
+    transition: all 0.2s ease;
+    border: 2px solid var(--accent-gold);
+    opacity: 1;                       /* Voll sichtbar */
+    visibility: visible;              /* Garantiert sichtbar */
 }
 
+/* Hover-Effekt (zusätzlich, nicht als einzige Sichtbarkeit) */
 .cta-button:hover {
+    background: var(--accent-muted);
+    color: var(--text-light);
+    border-color: var(--text-light);
     transform: scale(1.05);
-    background: var(--card-soft);
-    color: var(--bg-dark);
 }
+
+/* Alle Zustände sichtbar halten */
+.cta-button:link,
+.cta-button:visited,
+.cta-button:active,
+.cta-button:focus {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
 
 /* Modul-Grid */
 .module-grid-section {
