@@ -257,3 +257,92 @@ a {
         margin-bottom: 30px !important;
     }
 }
+/* ====================
+   FINALER COMMIT – VERSprochen!
+   ==================== */
+
+/* 1. VISIT CAMPFIRE IM HEADER ENTFERNEN */
+.campfire-mini-link {
+    display: none !important;
+}
+
+/* 2. NUR 2 FEATURES – Terminal + Bazzi */
+.campfire-features {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 60px !important;  /* Mehr Platz für 2 Elemente */
+    margin: 40px 0 !important;
+}
+
+/* 3D-Campfire Feature ausblenden */
+.campfire-features .feature:nth-child(2) {
+    display: none !important;
+}
+
+/* Die beiden verbleibenden Features schöner machen */
+.feature {
+    padding: 15px 40px !important;
+    font-size: 1.2rem !important;
+    background: var(--card-mocha) !important;
+    border: 2px solid var(--accent-gold) !important;
+    border-radius: 50px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
+}
+
+/* 3. LET'S GO BUTTON – Weißer Balken-FIX */
+.cta-button {
+    display: inline-block !important;
+    background: var(--accent-gold) !important;
+    color: #000 !important;
+    padding: 18px 60px !important;  /* Größer */
+    font-size: 1.4rem !important;
+    font-weight: bold !important;
+    border-radius: 50px !important;
+    text-decoration: none !important;
+    border: 3px solid var(--accent-gold) !important;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4) !important;
+    margin: 30px 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: all 0.2s ease;
+}
+
+.cta-button:hover {
+    background: #8b7a4d !important;
+    color: #fff !important;
+    border-color: #fff !important;
+    transform: scale(1.05);
+}
+
+/* Alle Zustände sichtbar halten */
+.cta-button:link,
+.cta-button:visited,
+.cta-button:active,
+.cta-button:focus {
+    background: var(--accent-gold) !important;
+    color: #000 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* 4. THE BAZZITE GUIDE – größer */
+.site-subtitle {
+    font-size: 1.8rem !important;
+    margin-top: 10px !important;
+}
+
+/* 5. Responsive Anpassungen */
+@media (max-width: 600px) {
+    .feature {
+        width: 100% !important;
+        text-align: center !important;
+    }
+    .campfire-features {
+        gap: 20px !important;
+        flex-direction: column !important;
+    }
+    .cta-button {
+        padding: 15px 40px !important;
+        font-size: 1.2rem !important;
+    }
+}
