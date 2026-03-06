@@ -1,27 +1,26 @@
-/* style.css – Mit sanften Abstufungen und kleinen Flaggen */
+/* style.css – FINALE VERSION mit Grid-Fix und ohne überflüssige Badges */
 
 :root {
     /* Basis */
-    --bg-dark: #434342;           /* Hintergrund (dunkelstes Grau) */
-    --border-dark: #222126;        /* Umrandungen */
+    --bg-dark: #434342;
+    --border-dark: #222126;
     
-    /* Karten – sanfte Abstufungen */
-    --card-mocha: #5e4b3a;         /* Modul-Karten (Mokka) */
-    --card-mocha-light: #7b6b5a;    /* Hover / besondere Karten */
-    --card-soft: #9fa2a3;           /* Ganz helle Akzente (selten) */
+    /* Karten */
+    --card-mocha: #5e4b3a;
+    --card-mocha-light: #7b6b5a;
+    --card-soft: #9fa2a3;
     
     /* Akzente */
-    --accent-gold: #b59455;         /* Gold für Buttons/Hover */
-    --accent-muted: #8b7a4d;        /* Dezenteres Gold */
+    --accent-gold: #b59455;
+    --accent-muted: #8b7a4d;
     
-    /* Funktionsfarben */
-    --green-soft: #96fca5;          /* Erfolg */
-    --orange-warm: #ee7f2c;          /* Campfire */
+    /* Funktionen */
+    --green-soft: #96fca5;
+    --orange-warm: #ee7f2c;
     
     /* Text */
     --text-light: #ffffff;
     --text-muted: rgba(255,255,255,0.8);
-    --text-soft: rgba(255,255,255,0.6);
     
     /* Abstände */
     --spacing-xs: 0.25rem;
@@ -43,10 +42,9 @@ body {
     line-height: 1.6;
     color: var(--text-light);
     background: var(--bg-dark);
-    min-height: 100vh;
 }
 
-/* Sprachumschalter – KLEIN und OBEN RECHTS */
+/* Sprachumschalter */
 .language-switcher {
     position: fixed;
     top: 20px;
@@ -80,7 +78,6 @@ body {
 .lang-btn:hover {
     border-color: var(--accent-gold);
     background: var(--card-mocha);
-    transform: translateY(-2px);
 }
 
 .lang-btn.active {
@@ -131,41 +128,43 @@ body {
     color: var(--text-muted);
 }
 
-/* Hero CTA Button – IMMER sichtbar */
+/* CTA BUTTON – ENDGÜLTIGER FIX */
 .cta-button {
-    display: inline-block;
-    padding: var(--spacing-md) var(--spacing-xl);
-    background: var(--accent-gold);  /* Gold-Hintergrund */
-    color: var(--bg-dark);           /* Dunkler Text */
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 600;
-    font-size: 1.2rem;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    padding: 15px 40px !important;
+    background: var(--accent-gold) !important;
+    color: var(--bg-dark) !important;
+    text-decoration: none !important;
+    border-radius: 30px !important;
+    font-weight: 600 !important;
+    font-size: 1.2rem !important;
+    border: 2px solid var(--accent-gold) !important;
+    margin: 20px 0 !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
     transition: all 0.2s ease;
-    border: 2px solid var(--accent-gold);
-    opacity: 1;                       /* Voll sichtbar */
-    visibility: visible;              /* Garantiert sichtbar */
 }
 
-/* Hover-Effekt (zusätzlich, nicht als einzige Sichtbarkeit) */
 .cta-button:hover {
-    background: var(--accent-muted);
-    color: var(--text-light);
-    border-color: var(--text-light);
+    background: var(--accent-muted) !important;
+    color: var(--text-light) !important;
+    border-color: var(--text-light) !important;
     transform: scale(1.05);
 }
 
-/* Alle Zustände sichtbar halten */
 .cta-button:link,
 .cta-button:visited,
 .cta-button:active,
 .cta-button:focus {
-    opacity: 1 !important;
+    display: inline-block !important;
     visibility: visible !important;
+    opacity: 1 !important;
+    background: var(--accent-gold) !important;
+    color: var(--bg-dark) !important;
 }
 
-
-/* Modul-Grid */
+/* Modul-Grid – OPTIMIERT */
 .module-grid-section {
     padding: var(--spacing-xl) var(--spacing-lg);
     max-width: 1200px;
@@ -180,15 +179,22 @@ body {
 }
 
 .module-grid {
-    max-width: 1200px;
-    margin: var(--spacing-xl) auto;
-    padding: 0 var(--spacing-lg);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--spacing-lg);
+    justify-content: center;
 }
 
-/* Normale Modul-Karten (Mokka) */
+/* Für 5 Module: Zentrierte Anordnung */
+@media (min-width: 768px) and (max-width: 1200px) {
+    .module-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .module-card:last-child {
+        grid-column: 2 / 3;
+    }
+}
+
 .module-card {
     background: var(--card-mocha);
     border-radius: 12px;
@@ -199,11 +205,13 @@ body {
     transition: all 0.2s;
     position: relative;
     overflow: hidden;
+    display: block;
+    width: 100%;
 }
 
 .module-card:hover {
     transform: translateY(-4px);
-    border-color: var(--accent-muted);
+    border-color: var(--accent-gold);
     background: var(--card-mocha-light);
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
@@ -226,26 +234,15 @@ body {
 
 .module-card p {
     color: var(--text-muted);
+    margin-bottom: 0;
 }
 
-/* Status-Badge */
+/* Status-Badge – ENTFERNT (nicht mehr nötig) */
 .module-status {
-    display: inline-block;
-    margin-top: var(--spacing-md);
-    padding: var(--spacing-xs) var(--spacing-md);
-    background: var(--accent-muted);
-    color: var(--text-light);
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
+    display: none;
 }
 
-.module-status.completed {
-    background: var(--green-soft);
-    color: var(--bg-dark);
-}
-
-/* Campfire-Eingang (besondere Karte) */
+/* Campfire-Eingang */
 .campfire-entrance {
     background: var(--card-mocha-light);
     color: var(--text-light);
@@ -373,8 +370,6 @@ footer a:hover {
         position: static;
         justify-content: center;
         padding: var(--spacing-md);
-        top: auto;
-        right: auto;
     }
     
     .campfire-features {
@@ -387,7 +382,7 @@ footer a:hover {
     }
 }
 
-/* Fortschrittsbalken (für Modul-Seiten) */
+/* Restliche Styles für Modul-Seiten (bleiben gleich) */
 .progress-bar {
     background: var(--card-mocha);
     padding: var(--spacing-md) 0;
@@ -585,37 +580,93 @@ footer a:hover {
     display: none;
 }
 
-/* Status-Buttons (Abgeschlossen etc.) */
-.module-status {
-    display: inline-block;
-    margin-top: var(--spacing-md);
-    padding: var(--spacing-xs) var(--spacing-md);
-    background: var(--accent-muted);  /* Dezentes Gold statt weiß */
+/* Info Box */
+.info-box {
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    margin: var(--spacing-md) 0;
+}
+
+.info-box.blue {
+    background: var(--border-dark);
     color: var(--text-light);
-    border-radius: 20px;
-    font-size: 0.9rem;
+    border-left: 5px solid var(--accent-gold);
+}
+
+/* Slow Track */
+.track-slow {
+    margin-bottom: var(--spacing-lg);
+}
+
+.track-slow summary {
+    background: var(--border-dark);
+    color: var(--text-light);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    cursor: pointer;
     font-weight: 600;
-    border: 1px solid var(--accent-gold);
 }
 
-.module-status.completed {
-    background: var(--green-soft);  /* Grün für "Abgeschlossen" */
+.slow-content {
+    padding: var(--spacing-lg);
+    background: var(--bg-dark);
+    color: var(--text-muted);
+    border-radius: 0 0 8px 8px;
+}
+
+/* Checkpoint */
+.checkpoint {
+    background: var(--green-soft);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    margin: var(--spacing-lg) 0;
     color: var(--bg-dark);
-    border-color: var(--green-soft);
 }
 
-/* Falls die Buttons im Modul selbst sind */
+.checkpoint p {
+    color: var(--bg-dark);
+}
+
 .checkpoint-btn {
-    background: var(--accent-gold);
-    color: var(--bg-dark);
+    background: var(--bg-dark);
+    color: var(--text-light);
     border: none;
     padding: var(--spacing-md) var(--spacing-lg);
     border-radius: 30px;
     font-weight: 600;
     cursor: pointer;
+    margin-top: var(--spacing-md);
 }
 
 .checkpoint-btn:hover {
-    background: var(--accent-muted);
+    background: var(--card-mocha);
     color: var(--text-light);
+}
+/* ULTIMATIVER FIX: Gold-Durchscheinen auf Hauptseite */
+.module-card {
+    overflow: hidden !important;           /* Schneidet alles ab, was übersteht */
+    position: relative !important;
+}
+
+.module-number {
+    position: absolute !important;
+    right: var(--spacing-md) !important;
+    left: auto !important;                  /* KEINE linke Position */
+    top: var(--spacing-sm) !important;
+    opacity: 0.15 !important;               /* Noch dezenter */
+    pointer-events: none !important;
+    z-index: 0 !important;                   /* Ganz nach hinten */
+}
+
+/* Alle Inhalte über die Nummer legen */
+.module-card h2,
+.module-card p {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+/* Falls ein Pseudo-Element stört */
+.module-card::before,
+.module-card::after {
+    display: none !important;
 }
