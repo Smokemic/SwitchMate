@@ -164,3 +164,96 @@ footer {
         margin: 40px 0 30px 0;
     }
 }
+/* ====================
+   RESTPROBLEME-SAMMLER
+   ==================== */
+
+/* 1. HOVER-EFFEKT für Boxen (zeigen dass klickbar) */
+.module-card {
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.module-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-gold);
+    background: #6b5a4a;  /* Etwas heller */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* 2. CAMPFIRE BUTTON – reparieren */
+.campfire-button {
+    display: inline-block !important;
+    background: var(--accent-gold) !important;
+    color: #000 !important;
+    padding: 15px 40px !important;
+    border-radius: 30px !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    margin-top: 30px !important;
+    border: 2px solid var(--accent-gold) !important;
+    transition: all 0.2s ease;
+}
+
+.campfire-button:hover {
+    background: #8b7a4d !important;
+    color: #fff !important;
+    border-color: #fff !important;
+    transform: scale(1.05);
+}
+
+/* 3. LET'S GO BUTTON – dicker machen */
+.cta-button {
+    padding: 15px 50px !important;  /* Breiter */
+    font-size: 1.3rem !important;
+    border: 3px solid var(--accent-gold) !important;
+    transition: all 0.2s ease;
+}
+
+.cta-button:hover {
+    background: #8b7a4d !important;
+    color: #fff !important;
+    border-color: #fff !important;
+    transform: scale(1.05);
+}
+
+/* 4. ABSTAND für "Dein Weg zu Bazzite" */
+.section-title {
+    margin-bottom: 50px !important;  /* Mehr Abstand nach unten */
+    padding-top: 20px !important;
+}
+
+/* 5. CAMPFIRE-FEATURES – mehr Platz */
+.campfire-features {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 40px !important;
+    flex-wrap: wrap !important;
+    margin: 30px 0 !important;
+}
+
+.feature {
+    padding: 12px 30px !important;
+    background: var(--card-mocha) !important;
+    border-radius: 40px !important;
+    border: 1px solid var(--accent-gold) !important;
+    font-size: 1.1rem !important;
+    white-space: nowrap !important;
+}
+
+/* 6. ALLE LINKS klickbar anzeigen */
+a {
+    cursor: pointer;
+}
+
+/* 7. FALLBACK für mobile */
+@media (max-width: 600px) {
+    .feature {
+        white-space: normal !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+    .section-title {
+        margin-bottom: 30px !important;
+    }
+}
